@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import useTheme from "../../hooks/useTheme";
 import useTodoList from "../../hooks/useTodoList";
 import logo from "../../logo.svg";
-import Game from "./components/Game";
+import MilpaBoard from "./components/MilpaBoard";
 
 export default function Home() {
     const [, { toggle }] = useTheme();
@@ -22,7 +22,7 @@ export default function Home() {
     return (
         <div className="App">
             <header className="App-header">
-                <Game/>
+                <MilpaBoard/>
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
                     Edit <code>src/App.js</code> and save to reload.
