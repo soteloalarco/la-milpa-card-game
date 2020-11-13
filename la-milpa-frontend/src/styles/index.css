@@ -40,19 +40,23 @@ code {
 }
 
 .parcela {
-    @apply w-12 h-12 bg-gray-100 bg-opacity-25;
+    @apply w-12 h-12 bg-gray-100 bg-opacity-25 shadow-xl;
 }
 
 .milpa-interior {
-    background-image: url("https://www.researchgate.net/profile/Mauricio_Lopez22/publication/307578868/figure/fig4/AS:402032163868675@1472863345472/Figura-33-Tradicional-milpa-maya.png");
+    background-image: url("https://static8.depositphotos.com/1010262/972/i/600/depositphotos_9728134-stock-photo-sowing-time.jpg");
 }
 
 .crops-table {
-    background-image: url("https://i.pinimg.com/originals/04/aa/9f/04aa9f8865a37416ed83e30a9ea1bb61.jpg");
+    background-image: url("https://magazine.velasresorts.com/wp-content/uploads/2020/08/Corn-mexico-960x750.jpg");
 }
 
 .crop-card {
-    @apply w-64 h-24 bg-gray-100 bg-opacity-25;
+    @apply w-64 h-24 shadow-2xl rounded-xl;
+}
+
+.crop-card-interior {
+    background-image: url("https://dbdzm869oupei.cloudfront.net/img/vinylrugs/preview/21768.png");
 }
 
 ol,
