@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function MatchHead(){
   return (
-    <div className="h-24 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"> LA MILPA CARD GAME</div>
+    <div className="w-full h-15 bg-gradient-to-r from-green-700 via-green-400 to-green-100"> LA MILPA CARD GAME</div>
   )
 }

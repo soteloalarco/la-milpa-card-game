@@ -44,7 +44,15 @@ code {
 }
 
 .milpa-interior {
-    background-image: url("https://agrega.juntadeandalucia.es/repositorio/14072010/cd/es-an_2010071411_9134358/ODE-80b92200-12d8-3437-9c14-0327f042c5a4/madagascar.jpg");
+    background-image: url("https://www.researchgate.net/profile/Mauricio_Lopez22/publication/307578868/figure/fig4/AS:402032163868675@1472863345472/Figura-33-Tradicional-milpa-maya.png");
+}
+
+.crops-table {
+    background-image: url("https://i.pinimg.com/originals/04/aa/9f/04aa9f8865a37416ed83e30a9ea1bb61.jpg");
+}
+
+.crop-card {
+    @apply w-64 h-24 bg-gray-100 bg-opacity-25;
 }
 
 ol,
@@ -96,4 +104,12 @@ ul {
 
 .milpa {
     background-color: #206a5d;
+}
+
+.crops {
+    background-color: #81b214;
+}
+
+.main-board {
+    background-color: #bfdcae;
 }
