@@ -48,15 +48,27 @@ code {
 }
 
 .crops-table {
-    background-image: url("https://magazine.velasresorts.com/wp-content/uploads/2020/08/Corn-mexico-960x750.jpg");
+    background-image: url("https://cdn.shopify.com/s/files/1/2954/2248/products/Sweet-Corn-Bodacious-Hybrid-Vegetable-Ferry-Morse_1400x.jpg?v=1582921331");
 }
 
 .crop-card {
     @apply w-64 h-24 shadow-2xl rounded-xl;
 }
 
+.details-card {
+    @apply shadow-2xl rounded-xl;
+}
+
+.w-parcela {
+    max-width: 360px;
+}
+
 .crop-card-interior {
-    background-image: url("https://dbdzm869oupei.cloudfront.net/img/vinylrugs/preview/21768.png");
+    background-image: url("https://media.istockphoto.com/photos/dark-wood-plank-background-picture-id599752764?k=6&m=599752764&s=170667a&w=0&h=Ybg37oGPAn7NAKqCYuk-wY6LX_NYyNZ37Tu28aouZsk=");
+}
+
+.detail-card-interior {
+    background-image: url("https://5.imimg.com/data5/SJ/SB/MY-23150508/20mm-black-stone-aggregate-500x500.jpg");
 }
 
 ol,
@@ -116,4 +128,8 @@ ul {
 
 .main-board {
     background-color: #bfdcae;
+}
+
+.match {
+    background-color: #999;
 }
