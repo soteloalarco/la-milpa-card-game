@@ -39,6 +39,14 @@ code {
     @apply bg-blue-700;
 }
 
+.parcela {
+    @apply w-12 h-12 bg-gray-100 bg-opacity-25;
+}
+
+.milpa-interior {
+    background-image: url("https://agrega.juntadeandalucia.es/repositorio/14072010/cd/es-an_2010071411_9134358/ODE-80b92200-12d8-3437-9c14-0327f042c5a4/madagascar.jpg");
+}
+
 ol,
 ul {
     padding-left: 30px;
@@ -84,4 +92,8 @@ ul {
   
 .game-info {
     margin-left: 20px;
+}
+
+.milpa {
+    background-color: #206a5d;
 }
