@@ -1,11 +1,28 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
+import {useRecoilState} from "recoil";
 import MatchHead from "./components/MatchHead"
 import MilpaBoard from "./components/MilpaBoard"
 import CropsTable from "./components/CropsTable"
 import DetailsCard from "./components/DetailsCard"
 import RoundCounter from "./components/RoundCounter"
 
-export default function Home() {
+import {detailsP1State,detailsP2State, ROUND_NAMES, currentRoundState} from "../../features/todos/atoms";
+
+
+const yourTurnCard = {
+    title : "It's your turn !",
+    subtitle : "Pick a card to see its details.",
+    image: "https://thumbs.dreamstime.com/b/keep-going-go-ahead-motivational-traffic-sign-start-ride-140804506.jpg",
+    rules: "Then select an empty space in your Milpa"
+  
+}
+
+function Home() {
+    
+    const [detailsP1, setDetailsP1] = useRecoilState(detailsP1State);
+    const [detailsP2, setDetailsP2] = useRecoilState(detailsP2State);
+    const [currentRound, setCurrentRound] = useRecoilState(currentRoundState);
 
     return (
         <div className="App">
@@ -14,27 +31,15 @@ export default function Home() {
             </header>
             <div className="match bg-center lg:container lg:mx-auto main-board py-2 my-2">
                 <div className="flex flex-wrap flex-row justify-evenly items-center px-2">
-                    <RoundCounter/>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">2 - Tlacaxipe-hualiztli</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">3 - Tozoztontli</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">4 - Huey tozoztli</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">5 - Tóxcatl</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">6 - Etzalcualiztli</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">7 - Tecuilhuitontli</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">8 - Huey tecuílhuitl</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">9 - Tlaxochimaco-miccailhuitontli</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">10 - Xocotlhuetzi-huey</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">11 - Ochpaniztli</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">12 - Teotleco</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">13 - Tepeilhuitl</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">14 - Quecholli</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">15 - Panque-tzaliztli</div>
-                    <div className="flex-auto bg-gray-400 rounded-lg p-1 m-1">16 - Atemoztli</div>    
+                    {ROUND_NAMES.map((roundName) => (
+                        <RoundCounter roundName={roundName} indexName={ROUND_NAMES.indexOf(roundName)} currentRound={currentRound}/>
+                    ))}
+                    
                 </div>
                 <div className="flex flex-wrap flex-row justify-evenly items-center">
                     <div className="flex flex-wrap flex-col justify-evenly items-center">
-                        <div className="flex-none w-parcela h-32 py-1">
-                            <DetailsCard/>
+                        <div className="flex-none w-parcela w-full h-32 py-1">
+                            <DetailsCard titleDetail={detailsP1.title} descDetail={detailsP1.subtitle} imgDetail={detailsP1.image} rulesDetail={detailsP1.rules} />
                         </div>
                         <div className="flex-none w-full">
                             <div className="bg-gray-400 rounded-md"> La Milpa de Rolando</div>
@@ -46,20 +51,8 @@ export default function Home() {
                     </div> 
                     <div className="flex-none shadow-2xl"><CropsTable/></div>
                     <div className="flex flex-wrap flex-col justify-evenly items-center">
-                        <div className="flex-none w-parcela h-32 py-1">
-                            <div className="details-card h-full ">
-                                <div className="flex bg-cover p-4 bg-white rounded-xl h-full w-full detail-card-interior text-white">
-                                <img alt="corn" className="h-16 w-16 rounded-full mx-0 mr-4" src="https://static.producer.com/wp-content/uploads/2017/02/08-pinto-blackbeans.jpg" />
-                                <div className="text-left">
-                                    <h3 className="text-md">
-                                    Beans / Frijol / Etl
-                                    </h3>
-                                    <hr/>
-                                    <div className="text-sm">Harvest: from round 1 until round 6</div>
-                                    <p className="text-sm">+3🍫 per adjacent Corn at the end.</p>
-                                </div>
-                                </div>
-                            </div>
+                        <div className="flex-none w-full w-parcela h-32 py-1">
+                            <DetailsCard titleDetail={detailsP2.title} descDetail={detailsP2.subtitle} imgDetail={detailsP2.image} rulesDetail={detailsP2.rules} />
                         </div>
                         <div className="flex-none w-full">
                             <div className="bg-gray-400 rounded-md"> La Milpa de Gabriela</div>
@@ -75,3 +68,5 @@ export default function Home() {
         </div>
     );
 }
+
+export default Home;

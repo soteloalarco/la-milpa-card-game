@@ -1,19 +1,28 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function CropCard(){
+export default function CropCard(props){
   return (
     <div className="crop-card">
       <button className="w-full h-full" type="button">
         <div className="flex bg-cover p-4 bg-white rounded-xl h-full crop-card-interior text-white">
-          <img alt="corn" className="h-16 w-16 rounded-full mx-auto mr-4" src="https://cdn-3.expansion.mx/dims4/default/7d1e4df/2147483647/strip/true/crop/5616x3744+0+0/resize/800x533!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2F76%2Ffa%2Fdce19d2f4136ad3f8c5636819170%2Fshutterstock-282467993.jpg" />
+          <img alt="corn" className="h-16 w-16 rounded-full mx-0 mr-4" src={props.imgCard} />
           <div className="text-left">
             <h3 className="text-md">
-              Corn / Maíz / Tlaolli
+              {props.titleCard}
             </h3>
-            <div className="text-sm">Harvest: round 13 - Tepeíhuitl</div>
+            <hr/>
+            <div className="text-sm">{props.descCard}</div>
           </div>
         </div>
       </button>
     </div>
   )
 }
+
+CropCard.propTypes ={
+  titleCard : PropTypes.string.isRequired,
+  descCard : PropTypes.string.isRequired,
+  imgCard : PropTypes.string.isRequired,
+};
