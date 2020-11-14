@@ -18,10 +18,34 @@ const NOT_YOUR_TURN = {
     rules: "Plan your turn ahead."  
 }
 const CARD_BACK = {
+    key : "default",
     title : "LA MILPA",
     subtitle : "CARD GAME",
     image: "https://www.jardineriaon.com/wp-content/uploads/2017/01/Agave_potatorum_var._verschaffelti-1024x768.jpg",
     rules: ""
+}
+
+const CORN_CARD = {
+    key : "corn",
+    title : "Corn / Maíz / Tlaolli",
+    subtitle: "Harvest: round 13 - Tepeíhuitl",
+    image : "https://cdn-3.expansion.mx/dims4/default/7d1e4df/2147483647/strip/true/crop/5616x3744+0+0/resize/800x533!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2F76%2Ffa%2Fdce19d2f4136ad3f8c5636819170%2Fshutterstock-282467993.jpg",
+    rules : "+1🍫 per round, +5🍫 per completed row/column at the end."
+}
+
+const BEANS_CARD = {
+    key : "beans",
+    title : "Beans / Frijol / Etl",
+    subtitle: "Harvest: from round 1 to round 6",
+    image: "https://static.producer.com/wp-content/uploads/2017/02/08-pinto-blackbeans.jpg",
+    rules: "+5🍫 per adjacent 🌽 at the end."
+}
+
+const CROPS = {
+    default: "💧",
+    corn : "🌽",
+    beans : "🌰",
+
 }
 
 const todoListState = atom({
@@ -60,7 +84,7 @@ const detailsP2State = atom({
 
 const cropsBoardState = atom({
     key : "cropsBoardState",
-    default : Array(4).fill(CARD_BACK),
+    default : Array(3).fill(CARD_BACK),
 }
 )
 
@@ -70,4 +94,16 @@ const currentRoundState = atom({
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES};
+const player1TurnState = atom({
+    key : "player1TurnState",
+    default : true,
+}
+)
+
+const player2TurnState = atom({
+    key : "player2TurnState",
+    default : true,
+}
+)
+
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, CROPS , player1TurnState, player2TurnState};
