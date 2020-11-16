@@ -1,0 +1,135 @@
+/* purgecss start ignore */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* purgecss end ignore */
+
+@import "tailwindcss/utilities";
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: theme("colors.primary");
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+.dark-theme body {
+    background-color: theme("colors.dark");
+    color: theme("colors.darkFont");
+}
+
+.btn {
+    @apply mx-2 rounded-lg py-2 px-4;
+}
+
+.todo-btn {
+    width: 200px;
+}
+
+.todo-btn--selected {
+    @apply bg-blue-700;
+}
+
+.parcela {
+    @apply w-12 h-12 bg-gray-100 bg-opacity-25 shadow-xl;
+}
+
+.milpa-interior {
+    background-image: url("https://static8.depositphotos.com/1010262/972/i/600/depositphotos_9728134-stock-photo-sowing-time.jpg");
+}
+
+.crops-table {
+    background-image: url("https://cdn.shopify.com/s/files/1/2954/2248/products/Sweet-Corn-Bodacious-Hybrid-Vegetable-Ferry-Morse_1400x.jpg?v=1582921331");
+}
+
+.crop-card {
+    @apply w-64 h-24 shadow-2xl rounded-xl;
+}
+
+.details-card {
+    @apply shadow-2xl rounded-xl;
+}
+
+.w-parcela {
+    max-width: 360px;
+}
+
+.crop-card-interior {
+    background-image: url("https://media.istockphoto.com/photos/dark-wood-plank-background-picture-id599752764?k=6&m=599752764&s=170667a&w=0&h=Ybg37oGPAn7NAKqCYuk-wY6LX_NYyNZ37Tu28aouZsk=");
+}
+
+.detail-card-interior {
+    background-image: url("https://5.imimg.com/data5/SJ/SB/MY-23150508/20mm-black-stone-aggregate-500x500.jpg");
+}
+
+ol,
+ul {
+    padding-left: 30px;
+}
+  
+.board-row::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+  
+.status {
+    margin-bottom: 10px;
+}
+  
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+}
+  
+.square:focus {
+    outline: none;
+}
+  
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+  
+.game {
+    display: flex;
+    flex-direction: row;
+}
+  
+.game-info {
+    margin-left: 20px;
+}
+
+.milpa {
+    background-color: #206a5d;
+}
+
+.crops {
+    background-color: #81b214;
+}
+
+.main-board {
+    background-color: #bfdcae;
+}
+
+.match {
+    background-color: #999;
+}
