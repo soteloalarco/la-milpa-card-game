@@ -52,6 +52,7 @@ export default function CropCard(props){
 
 CropCard.propTypes ={
   cropCard : PropTypes.shape({
+    key: PropTypes.string,
     title: PropTypes.string,
     subtitle: PropTypes.string,
     image: PropTypes.string,

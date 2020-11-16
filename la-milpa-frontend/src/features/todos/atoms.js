@@ -5,6 +5,13 @@ const TODO_LIST_FILTER_KEY = "todoListFilterState";
 const TODO_LIST_FILTERS = ["Show All", "Show Completed", "Show Incomplete"];
 const ROUND_NAMES = ["Atlcahualo", "Tlacaxipe-hualiztli", "Tozoztontli", "Huey tozoztli", "Tóxcatl", "Etzalcualiztli", "Tecuilhuitontli" , "Huey tecuílhuitl", "Tlaxochimaco-miccailhuitontli", "Xocotlhuetzi-huey", "Ochpaniztli", "Teotleco", "Tepeilhuitl", "Quecholli", "Panque-tzaliztli", "Atemoztli"];
 
+const GAME_START = {
+    title : "Game is About to Start!",
+    subtitle : "Good luck and have fun.",
+    image: "https://www.jardineriaon.com/wp-content/uploads/2017/01/Agave_potatorum_var._verschaffelti-1024x768.jpg",
+    rules: "May the best Milpa win!"
+};
+
 const YOUR_TURN = {
     title : "It's your turn !",
     subtitle : "Pick a card to see its details.",
@@ -66,7 +73,7 @@ const milpaP1State = atom({
 
 const detailsP1State = atom({
     key : "detailsP1State",
-    default : YOUR_TURN,
+    default : GAME_START,
 }
 )
 
@@ -78,7 +85,7 @@ const milpaP2State = atom({
 
 const detailsP2State = atom({
     key : "detailsP2State",
-    default : NOT_YOUR_TURN,
+    default : GAME_START,
 }
 )
 
@@ -130,4 +137,4 @@ const player2CropSelectedState = atom({
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, CROPS , player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState};
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, CROPS , player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN};

@@ -7,7 +7,7 @@ import CropsTable from "./components/CropsTable"
 import DetailsCard from "./components/DetailsCard"
 import RoundCounter from "./components/RoundCounter"
 
-import {detailsP1State,detailsP2State, ROUND_NAMES, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState, player1IsCropSelectedState, player2IsCropSelectedState} from "../../features/todos/atoms";
+import {detailsP1State,detailsP2State, ROUND_NAMES, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState, player1IsCropSelectedState, player2IsCropSelectedState, YOUR_TURN, NOT_YOUR_TURN} from "../../features/todos/atoms";
 import { milpaP1IsActiveState, milpaP2IsActiveState } from "../../features/todos/selectors";
 
 
@@ -47,10 +47,27 @@ function Home() {
     
 
     const handleStartMatch = () => {
-        if(currentRoundValue < 16){
+        if(currentRoundValue < 16 && currentRoundValue%2 ===0){
+          setDetailsP1State(YOUR_TURN);
+          setPlayer1CropSelectedState({});
+          setPlayer1IsCropSelectedState(false);
+          setDetailsP2State(NOT_YOUR_TURN);
+          setPlayer2CropSelectedState({});
+          setPlayer2IsCropSelectedState(false);
           setCurrentRoundState(round => round +1); 
           refillCropsTable();
-          setTableIsActiveValue(true)};
+          setTableIsActiveValue(true)}
+        else if(currentRoundValue < 16 && currentRoundValue%2 ===1){
+          setDetailsP1State(NOT_YOUR_TURN);
+          setPlayer1CropSelectedState({});
+          setPlayer1IsCropSelectedState(false);
+          setDetailsP2State(YOUR_TURN);
+          setPlayer2CropSelectedState({});
+          setPlayer2IsCropSelectedState(false);
+          setCurrentRoundState(round => round +1); 
+          refillCropsTable();
+          setTableIsActiveValue(true)}
+        
     };
 
     return (

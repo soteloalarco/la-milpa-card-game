@@ -24,6 +24,7 @@ export default function DetailsCard(props){
 
 DetailsCard.propTypes ={
   detailsCard : PropTypes.shape({
+    key: PropTypes.string,
     title: PropTypes.string,
     subtitle: PropTypes.string,
     image: PropTypes.string,
