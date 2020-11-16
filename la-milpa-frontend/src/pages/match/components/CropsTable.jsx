@@ -44,7 +44,7 @@ export default function CropsTable(props){
   return (
     <div className="crops px-5 py-5 rounded-lg">
       <div className="crops-table bg-cover grid grid-rows-4 gap-2 px-5 py-5  justify-items-center">
-        <CropCardStart titleCard="Start the Game" descCard="Click here!" imgCard="https://www.jardineriaon.com/wp-content/uploads/2017/01/Agave_potatorum_var._verschaffelti-1024x768.jpg" isActive onClick={props.handleStartMatch}/>
+        <CropCardStart titleCard="Start the Game" descCard="Click here!" imgCard="https://www.jardineriaon.com/wp-content/uploads/2017/01/Agave_potatorum_var._verschaffelti-1024x768.jpg" isActive isDisabled={props.startDisabled} onClick={props.handleStartMatch}/>
         {cropsBoardValue.map((crop) => (
           <CropCard cropCard={crop} isActive={props.tableIsActive}/>
         ))}
@@ -56,4 +56,5 @@ export default function CropsTable(props){
 CropsTable.propTypes= {
   handleStartMatch : PropTypes.func.isRequired,
   tableIsActive: PropTypes.bool.isRequired,
+  startDisabled: PropTypes.bool.isRequired,
 }

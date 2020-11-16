@@ -30,6 +30,7 @@ function Home() {
     const milpaP2CropsValue= useRecoilValue(milpaP2CropsState);
     const [cropsBoardValue, setCropsBoardState] = useRecoilState(cropsBoardState);
     const [tableIsActiveValue, setTableIsActiveValue] = useState(false);
+    const [startIsActiveValue, setStartIsActiveValue] = useState(true);
     const player1TurnValue = useRecoilValue(player1TurnState);
     const player2TurnValue = useRecoilValue(player2TurnState);
     const [player1CropSelectedValue ,setPlayer1CropSelectedState] = useRecoilState(player1CropSelectedState);
@@ -49,7 +50,7 @@ function Home() {
     
 
     const handleStartMatch = () => {
-        if(currentRoundValue < 16 && currentRoundValue%2 ===0){
+
           setDetailsP1State(YOUR_TURN);
           setPlayer1CropSelectedState({});
           setPlayer1IsCropSelectedState(false);
@@ -58,17 +59,8 @@ function Home() {
           setPlayer2IsCropSelectedState(false);
           setCurrentRoundState(round => round +1); 
           refillCropsTable();
-          setTableIsActiveValue(true)}
-        else if(currentRoundValue < 16 && currentRoundValue%2 ===1){
-          setDetailsP1State(NOT_YOUR_TURN);
-          setPlayer1CropSelectedState({});
-          setPlayer1IsCropSelectedState(false);
-          setDetailsP2State(YOUR_TURN);
-          setPlayer2CropSelectedState({});
-          setPlayer2IsCropSelectedState(false);
-          setCurrentRoundState(round => round +1); 
-          refillCropsTable();
-          setTableIsActiveValue(true)}
+          setTableIsActiveValue(true)
+          setStartIsActiveValue(false)
         
     };
 
@@ -97,7 +89,7 @@ function Home() {
                             <div className="bg-gray-400 rounded-md"> Puntaje : XXX cacao</div>
                         </div>
                     </div> 
-                    <div className="flex-none shadow-2xl"><CropsTable handleStartMatch={handleStartMatch} tableIsActive={tableIsActiveValue}/></div>
+                    <div className="flex-none shadow-2xl"><CropsTable startDisabled={!startIsActiveValue} handleStartMatch={handleStartMatch} tableIsActive={tableIsActiveValue}/></div>
                     <div className="flex flex-wrap flex-col justify-evenly items-center">
                         <div className="flex-none w-full w-parcela h-32 py-1">
                             <DetailsCard detailsCard={detailsP2Value}/>
