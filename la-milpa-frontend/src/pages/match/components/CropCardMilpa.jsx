@@ -2,8 +2,9 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useRecoilState, useSetRecoilState} from "recoil";
-import {milpaP1CropsState, milpaP2CropsState, detailsP1State, detailsP2State, milpaP1State, milpaP2State, player2IsCropSelectedState, player1IsCropSelectedState, player1TurnState, player2TurnState, NOT_YOUR_TURN, YOUR_TURN, player2CropSelectedState, player1CropSelectedState, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD} from "../../../features/todos/atoms";
+import { useRecoilState, useRecoilValue, useSetRecoilState} from "recoil";
+import {milpaP1CropsState, milpaP2CropsState, detailsP1State, detailsP2State, milpaP1State, milpaP2State, player2IsCropSelectedState, player1IsCropSelectedState, player1TurnState, player2TurnState, NOT_YOUR_TURN, YOUR_TURN, player2CropSelectedState, player1CropSelectedState, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, milpaP2Score, milpaP1Score, indexCropSelectedState} from "../../../features/todos/atoms";
+import computeNewScore from "../../../features/todos/scoring"
 
 export default function CropCardMilpa(props){
 
@@ -26,6 +27,9 @@ export default function CropCardMilpa(props){
   const setPlayer2IsCropSelectedState = useSetRecoilState(player2IsCropSelectedState);
   const [currentRoundValue, setCurrentRoundState] = useRecoilState(currentRoundState);
   const [cropsBoardValue, setCropsBoardState] = useRecoilState(cropsBoardState);
+  const [milpaP1ScoreValue, setMilpaP1ScoreState] = useRecoilState(milpaP1Score);
+  const [milpaP2ScoreValue, setMilpaP2ScoreState] = useRecoilState(milpaP2Score);
+  const indexCropSelectedValue = useRecoilValue(indexCropSelectedState);
 
   const refillCropsTable= ()=> {
     // eslint-disable-next-line prefer-const
@@ -35,6 +39,18 @@ export default function CropCardMilpa(props){
       newCropsBoard[index] = CROPS[Math.floor(Math.random()*2)]
     });
     setCropsBoardState(newCropsBoard);
+  }
+
+  const removedCardfromBoard= (indexSelected,oldCropsBoard)=> {
+    // eslint-disable-next-line prefer-const
+    let newCropsBoard= [];
+    // eslint-disable-next-line array-callback-return
+    oldCropsBoard.map((crop,index) => {
+      if(index!==indexSelected){
+        newCropsBoard.push(crop);
+      }     
+    });
+    return newCropsBoard
   }
 
 
@@ -49,7 +65,8 @@ export default function CropCardMilpa(props){
         setCurrentRoundState(round => round +1); 
         setPlayer1TurnState(true);
         setPlayer2TurnState(false);
-        refillCropsTable();}
+        refillCropsTable();
+      }
       else if(currentRoundValue < 16 && currentRoundValue%2 ===1 && turnPlayer2){
         setDetailsP1State(NOT_YOUR_TURN);
         setPlayer1CropSelectedState({});
@@ -77,12 +94,21 @@ export default function CropCardMilpa(props){
       let newMilpa = milpaP1Value.slice();
       newMilpa[props.indexMilpaCrop] = false;
 
+      const lastScore = milpaP1ScoreValue;
+      const newScore = computeNewScore({
+        key : detailsP1Value.key,
+        icon : detailsP1Value.icon,
+      },milpaP1CropsValue,lastScore );
+      setMilpaP1ScoreState(newScore);
+
       SetMilpaP1State(newMilpa);
       SetMilpaP1CropsState(newMilpaCrops);
       setPlayer1TurnState(false);
       setPlayer2TurnState(true);
       setDetailsP1State(NOT_YOUR_TURN);
       setDetailsP2State(YOUR_TURN);
+      const newBoard = removedCardfromBoard(indexCropSelectedValue,cropsBoardValue);
+      setCropsBoardState(newBoard);
       nextRound(player1TurnValue,player2TurnValue);
     } else{
       // eslint-disable-next-line prefer-const
@@ -95,12 +121,21 @@ export default function CropCardMilpa(props){
       let newMilpa = milpaP2Value.slice();
       newMilpa[props.indexMilpaCrop%16] = false;
 
+      const lastScore = milpaP2ScoreValue;
+      const newScore = computeNewScore({
+        key : detailsP2Value.key,
+        icon : detailsP2Value.icon,
+      },milpaP2CropsValue,lastScore );
+      setMilpaP2ScoreState(newScore);
+
       SetMilpaP2State(newMilpa);
       SetMilpaP2CropsState(newMilpaCrops)
       setPlayer1TurnState(true);
       setPlayer2TurnState(false);
       setDetailsP1State(YOUR_TURN);
       setDetailsP2State(NOT_YOUR_TURN);
+      const newBoard = removedCardfromBoard(indexCropSelectedValue,cropsBoardValue);
+      setCropsBoardState(newBoard);
       nextRound(player1TurnValue,player2TurnValue);
     }
    

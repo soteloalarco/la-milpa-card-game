@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable no-unused-vars */
@@ -46,8 +47,8 @@ export default function CropsTable(props){
     <div className="crops px-5 py-5 rounded-lg">
       <div className="crops-table bg-cover grid grid-rows-4 gap-2 px-5 py-5  justify-items-center">
         <CropCardStart titleCard={roundCardValue.title} descCard={roundCardValue.subtitle} imgCard={roundCardValue.image} isActive isDisabled={props.startDisabled} onClick={props.handleStartMatch}/>
-        {cropsBoardValue.map((crop) => (
-          <CropCard cropCard={crop} isActive={props.tableIsActive}/>
+        {cropsBoardValue.map((crop,index) => (
+          <CropCard cropCard={crop} cardIndex={index} isActive={props.tableIsActive}/>
         ))}
       </div>
     </div>

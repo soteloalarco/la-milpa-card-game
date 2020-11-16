@@ -90,6 +90,12 @@ const milpaP1State = atom({
 }
 )
 
+const milpaP1Score = atom({
+    key : "milpaP1Score",
+    default : 0,
+}
+)
+
 const milpaP1CropsState = atom({
     key : "milpaP1CropsState",
     default : Array(16).fill(DEFAULT_CROPS),
@@ -105,6 +111,12 @@ const detailsP1State = atom({
 const milpaP2State = atom({
     key : "milpaP2State",
     default : Array(16).fill(true),
+}
+)
+
+const milpaP2Score = atom({
+    key : "milpaP2Score",
+    default : 0,
 }
 )
 
@@ -174,4 +186,10 @@ const roundCardState = atom({
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD , player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS};
+const indexCropSelectedState = atom({
+    key : "indexCropSelectedState",
+    default : -1,
+}
+)
+
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD , player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, indexCropSelectedState};

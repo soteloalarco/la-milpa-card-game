@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useSetRecoilState, useRecoilValue} from "recoil";
-import {player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState, player1IsCropSelectedState, player2IsCropSelectedState, detailsP1State, detailsP2State} from "../../../features/todos/atoms";
+import {player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState, player1IsCropSelectedState, player2IsCropSelectedState, detailsP1State, detailsP2State, indexCropSelectedState} from "../../../features/todos/atoms";
 
 
 export default function CropCard(props){
@@ -16,6 +16,7 @@ export default function CropCard(props){
   const player2TurnValue = useRecoilValue(player2TurnState);
   const setDetailsP1State = useSetRecoilState(detailsP1State);
   const setDetailsP2State = useSetRecoilState(detailsP2State);
+  const setIndexCropSelectedState = useSetRecoilState(indexCropSelectedState)
 
   // eslint-disable-next-line no-unused-vars
   const handleOnClick = () =>{
@@ -24,10 +25,12 @@ export default function CropCard(props){
       setPlayer1CropSelectedState(props.cropCard);
       setPlayer1IsCropSelectedState(true);
       setDetailsP1State(props.cropCard);
+      setIndexCropSelectedState(props.cardIndex);
     }else if(player2TurnValue){
       setPlayer2CropSelectedState(props.cropCard);
       setPlayer2IsCropSelectedState(true);
       setDetailsP2State(props.cropCard);
+      setIndexCropSelectedState(props.cardIndex);
     }
   }
 
@@ -60,4 +63,5 @@ CropCard.propTypes ={
     icon: PropTypes.string
   }).isRequired,
   isActive : PropTypes.bool.isRequired,
+  cardIndex: PropTypes.number.isRequired,
 };  
