@@ -60,7 +60,7 @@ const todoListFilterState = atom({
 
 const milpaP1State = atom({
     key : "milpaP1State",
-    default : Array(16).fill(null),
+    default : Array(16).fill(true),
 }
 )
 
@@ -72,7 +72,7 @@ const detailsP1State = atom({
 
 const milpaP2State = atom({
     key : "milpaP2State",
-    default : Array(16).fill(null),
+    default : Array(16).fill(true),
 }
 )
 
@@ -102,8 +102,20 @@ const player1TurnState = atom({
 
 const player2TurnState = atom({
     key : "player2TurnState",
-    default : true,
+    default : false,
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, CROPS , player1TurnState, player2TurnState};
+const player1CropSelectedState = atom({
+    key : "player1CropSelectedState",
+    default : false,
+}
+)
+
+const player2CropSelectedState = atom({
+    key : "player2CropSelectedState",
+    default : false,
+}
+)
+
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, CROPS , player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState};

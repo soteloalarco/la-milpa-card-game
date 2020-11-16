@@ -8,6 +8,7 @@ import DetailsCard from "./components/DetailsCard"
 import RoundCounter from "./components/RoundCounter"
 
 import {detailsP1State,detailsP2State, ROUND_NAMES, currentRoundState} from "../../features/todos/atoms";
+import { milpaP1IsActiveState, milpaP2IsActiveState } from "../../features/todos/selectors";
 
 
 const yourTurnCard = {
@@ -23,6 +24,8 @@ function Home() {
     const [detailsP1, setDetailsP1] = useRecoilState(detailsP1State);
     const [detailsP2, setDetailsP2] = useRecoilState(detailsP2State);
     const currentRound = useRecoilValue(currentRoundState);
+    const milpaP1IsActive = useRecoilValue(milpaP1IsActiveState);
+    const milpaP2IsActive = useRecoilValue(milpaP2IsActiveState);
 
     return (
         <div className="App">
@@ -44,7 +47,7 @@ function Home() {
                         <div className="flex-none w-full">
                             <div className="bg-gray-400 rounded-md"> La Milpa de Rolando</div>
                         </div>
-                        <div className="flex-none shadow-2xl"><MilpaBoard/></div>
+                        <div className="flex-none shadow-2xl"><MilpaBoard milpaIsActive={milpaP1IsActive}/></div>
                         <div className="flex-none w-full">
                             <div className="bg-gray-400 rounded-md"> Puntaje : XXX cacao</div>
                         </div>
@@ -57,7 +60,7 @@ function Home() {
                         <div className="flex-none w-full">
                             <div className="bg-gray-400 rounded-md"> La Milpa de Gabriela</div>
                         </div>
-                        <div className="flex-none shadow-2xl"><MilpaBoard/></div>
+                        <div className="flex-none shadow-2xl"><MilpaBoard milpaIsActive={milpaP2IsActive} /></div>
                         <div className="flex-none w-full">
                             <div className="bg-gray-400 rounded-md"> Puntaje : XXX cacao</div>
                         </div>
