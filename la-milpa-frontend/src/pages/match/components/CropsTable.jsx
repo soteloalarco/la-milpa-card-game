@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useCallback } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useRecoilValue , useRecoilState, useRecoilCallback} from "recoil";
 import CropCard from './CropCard';
@@ -10,10 +10,9 @@ export default function CropsTable(props){
   const cropsBoardValue = useRecoilValue(cropsBoardState);
   const [currentRoundValue,setCurrentRoundState] = useRecoilState(currentRoundState)
 
-  const incrementRound = useCallback(
-    () => {setCurrentRoundState(round => round +1);
-    console.log(currentRoundValue);},[setCurrentRoundState]
-  )
+  const incrementRound = () => {setCurrentRoundState(round => round +1);console.log(currentRoundValue)};
+  
+  
 
   return (
     <div className="crops px-5 py-5 rounded-lg">
