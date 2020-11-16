@@ -37,7 +37,8 @@ const CORN_CARD = {
     title : "Corn / Maíz / Tlaolli",
     subtitle: "Harvest: round 13 - Tepeíhuitl",
     image : "https://cdn-3.expansion.mx/dims4/default/7d1e4df/2147483647/strip/true/crop/5616x3744+0+0/resize/800x533!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2F76%2Ffa%2Fdce19d2f4136ad3f8c5636819170%2Fshutterstock-282467993.jpg",
-    rules : "+1🍫 per round, +5🍫 per completed row/column at the end."
+    rules : "+1🍫 per round, +5🍫 per completed row/column at the end.",
+    icon: "🌽"
 }
 
 const BEANS_CARD = {
@@ -45,14 +46,13 @@ const BEANS_CARD = {
     title : "Beans / Frijol / Etl",
     subtitle: "Harvest: from round 1 to round 6",
     image: "https://static.producer.com/wp-content/uploads/2017/02/08-pinto-blackbeans.jpg",
-    rules: "+5🍫 per adjacent 🌽 at the end."
+    rules: "+5🍫 per adjacent 🌽 at the end.",
+    icon: "🌰"
 }
 
-const CROPS = {
-    default: "💧",
-    corn : "🌽",
-    beans : "🌰",
-
+const DEFAULT_CROPS = {
+    key: "null",
+    icon: ""
 }
 
 const todoListState = atom({
@@ -71,6 +71,12 @@ const milpaP1State = atom({
 }
 )
 
+const milpaP1CropsState = atom({
+    key : "milpaP1CropsState",
+    default : Array(16).fill(DEFAULT_CROPS),
+}
+)
+
 const detailsP1State = atom({
     key : "detailsP1State",
     default : GAME_START,
@@ -80,6 +86,12 @@ const detailsP1State = atom({
 const milpaP2State = atom({
     key : "milpaP2State",
     default : Array(16).fill(true),
+}
+)
+
+const milpaP2CropsState = atom({
+    key : "milpaP2CropsState",
+    default : Array(16).fill(DEFAULT_CROPS),
 }
 )
 
@@ -137,4 +149,4 @@ const player2CropSelectedState = atom({
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, CROPS , player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN};
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD , player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState};

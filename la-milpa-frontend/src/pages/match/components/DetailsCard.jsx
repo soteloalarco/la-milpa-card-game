@@ -29,5 +29,6 @@ DetailsCard.propTypes ={
     subtitle: PropTypes.string,
     image: PropTypes.string,
     rules: PropTypes.string,
+    icon: PropTypes.string
   }).isRequired
 };

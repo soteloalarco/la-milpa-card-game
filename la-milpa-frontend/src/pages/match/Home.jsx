@@ -7,7 +7,7 @@ import CropsTable from "./components/CropsTable"
 import DetailsCard from "./components/DetailsCard"
 import RoundCounter from "./components/RoundCounter"
 
-import {detailsP1State,detailsP2State, ROUND_NAMES, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState, player1IsCropSelectedState, player2IsCropSelectedState, YOUR_TURN, NOT_YOUR_TURN} from "../../features/todos/atoms";
+import {detailsP1State,detailsP2State, ROUND_NAMES, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState, player1IsCropSelectedState, player2IsCropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState} from "../../features/todos/atoms";
 import { milpaP1IsActiveState, milpaP2IsActiveState } from "../../features/todos/selectors";
 
 
@@ -26,6 +26,8 @@ function Home() {
     const [currentRoundValue, setCurrentRoundState] = useRecoilState(currentRoundState);
     const milpaP1IsActive = useRecoilValue(milpaP1IsActiveState);
     const milpaP2IsActive = useRecoilValue(milpaP2IsActiveState);
+    const milpaP1CropsValue = useRecoilValue(milpaP1CropsState);
+    const milpaP2CropsValue= useRecoilValue(milpaP2CropsState);
     const [cropsBoardValue, setCropsBoardState] = useRecoilState(cropsBoardState);
     const [tableIsActiveValue, setTableIsActiveValue] = useState(false);
     const player1TurnValue = useRecoilValue(player1TurnState);
@@ -90,7 +92,7 @@ function Home() {
                         <div className="flex-none w-full">
                             <div className="bg-gray-400 rounded-md"> La Milpa de Rolando</div>
                         </div>
-                        <div className="flex-none shadow-2xl"><MilpaBoard milpaIsActive={milpaP1IsActive}/></div>
+                        <div className="flex-none shadow-2xl"><MilpaBoard milpaIsActive={milpaP1IsActive} playerNumber={0} milpaCropsValue={milpaP1CropsValue}/></div>
                         <div className="flex-none w-full">
                             <div className="bg-gray-400 rounded-md"> Puntaje : XXX cacao</div>
                         </div>
@@ -103,7 +105,7 @@ function Home() {
                         <div className="flex-none w-full">
                             <div className="bg-gray-400 rounded-md"> La Milpa de Gabriela</div>
                         </div>
-                        <div className="flex-none shadow-2xl"><MilpaBoard milpaIsActive={milpaP2IsActive} /></div>
+                        <div className="flex-none shadow-2xl"><MilpaBoard milpaIsActive={milpaP2IsActive} playerNumber={1} milpaCropsValue={milpaP2CropsValue}/></div>
                         <div className="flex-none w-full">
                             <div className="bg-gray-400 rounded-md"> Puntaje : XXX cacao</div>
                         </div>
