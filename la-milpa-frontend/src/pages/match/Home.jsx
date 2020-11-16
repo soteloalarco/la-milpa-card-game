@@ -7,8 +7,8 @@ import CropsTable from "./components/CropsTable"
 import DetailsCard from "./components/DetailsCard"
 import RoundCounter from "./components/RoundCounter"
 
-import {detailsP1State,detailsP2State, ROUND_NAMES, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState, player1IsCropSelectedState, player2IsCropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState} from "../../features/todos/atoms";
-import { milpaP1IsActiveState, milpaP2IsActiveState } from "../../features/todos/selectors";
+import {detailsP1State,detailsP2State, ROUND_NAMES, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState, player1IsCropSelectedState, player2IsCropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS} from "../../features/todos/atoms";
+import { milpaP1IsActiveState, milpaP2IsActiveState, milpaP1ScoreState, milpaP2ScoreState } from "../../features/todos/selectors";
 
 
 const yourTurnCard = {
@@ -26,6 +26,8 @@ function Home() {
     const [currentRoundValue, setCurrentRoundState] = useRecoilState(currentRoundState);
     const milpaP1IsActive = useRecoilValue(milpaP1IsActiveState);
     const milpaP2IsActive = useRecoilValue(milpaP2IsActiveState);
+    const milpaP1Score = useRecoilValue(milpaP1ScoreState);
+    const milpaP2Score = useRecoilValue(milpaP2ScoreState);
     const milpaP1CropsValue = useRecoilValue(milpaP1CropsState);
     const milpaP2CropsValue= useRecoilValue(milpaP2CropsState);
     const [cropsBoardValue, setCropsBoardState] = useRecoilState(cropsBoardState);
@@ -37,6 +39,7 @@ function Home() {
     const [player2CropSelectedValue ,setPlayer2CropSelectedState] = useRecoilState(player2CropSelectedState);
     const setPlayer1IsCropSelectedState = useSetRecoilState(player1IsCropSelectedState);
     const setPlayer2IsCropSelectedState = useSetRecoilState(player2IsCropSelectedState);
+    const setRoundCardState= useSetRecoilState(roundCardState);
 
     const refillCropsTable= ()=> {
         // eslint-disable-next-line prefer-const
@@ -51,16 +54,17 @@ function Home() {
 
     const handleStartMatch = () => {
 
-          setDetailsP1State(YOUR_TURN);
-          setPlayer1CropSelectedState({});
-          setPlayer1IsCropSelectedState(false);
-          setDetailsP2State(NOT_YOUR_TURN);
-          setPlayer2CropSelectedState({});
-          setPlayer2IsCropSelectedState(false);
-          setCurrentRoundState(round => round +1); 
-          refillCropsTable();
-          setTableIsActiveValue(true)
-          setStartIsActiveValue(false)
+        setDetailsP1State(YOUR_TURN);
+        setPlayer1CropSelectedState({});
+        setPlayer1IsCropSelectedState(false);
+        setDetailsP2State(NOT_YOUR_TURN);
+        setPlayer2CropSelectedState({});
+        setPlayer2IsCropSelectedState(false);
+        setCurrentRoundState(round => round +1); 
+        refillCropsTable();
+        setTableIsActiveValue(true);
+        setStartIsActiveValue(false);
+        setRoundCardState(CARD_NEXTROUNS);
         
     };
 
@@ -86,7 +90,7 @@ function Home() {
                         </div>
                         <div className="flex-none shadow-2xl"><MilpaBoard milpaIsActive={milpaP1IsActive} playerNumber={0} milpaCropsValue={milpaP1CropsValue}/></div>
                         <div className="flex-none w-full">
-                            <div className="bg-gray-400 rounded-md"> Puntaje : XXX cacao</div>
+                            <div className="bg-gray-400 rounded-md"> Puntaje : {milpaP1Score} cacao</div>
                         </div>
                     </div> 
                     <div className="flex-none shadow-2xl"><CropsTable startDisabled={!startIsActiveValue} handleStartMatch={handleStartMatch} tableIsActive={tableIsActiveValue}/></div>
@@ -99,7 +103,7 @@ function Home() {
                         </div>
                         <div className="flex-none shadow-2xl"><MilpaBoard milpaIsActive={milpaP2IsActive} playerNumber={1} milpaCropsValue={milpaP2CropsValue}/></div>
                         <div className="flex-none w-full">
-                            <div className="bg-gray-400 rounded-md"> Puntaje : XXX cacao</div>
+                            <div className="bg-gray-400 rounded-md"> Puntaje : {milpaP2Score} cacao</div>
                         </div>
                     </div>  
                 </div>

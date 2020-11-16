@@ -6,7 +6,7 @@ import PropTypes, { bool } from 'prop-types';
 import { useRecoilValue , useRecoilState, useRecoilCallback} from "recoil";
 import CropCard from './CropCard';
 import CropCardStart from './CropCardStart';
-import {cropsBoardState, currentRoundState, CORN_CARD, BEANS_CARD, detailsP1State, detailsP2State, player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState} from "../../../features/todos/atoms";
+import {cropsBoardState, currentRoundState, CORN_CARD, BEANS_CARD, detailsP1State, detailsP2State, player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState, roundCardState} from "../../../features/todos/atoms";
 
 export default function CropsTable(props){
 
@@ -20,6 +20,7 @@ export default function CropsTable(props){
   const player2CropSelectedValue = useRecoilValue(player2CropSelectedState);
   const [currentRoundValue,setCurrentRoundState] = useRecoilState(currentRoundState);
   const [tableIsActiveValue, setTableIsActiveValue] = useState(false);
+  const roundCardValue = useRecoilValue(roundCardState);
 
 
   const refillBoard = ()=> {
@@ -44,7 +45,7 @@ export default function CropsTable(props){
   return (
     <div className="crops px-5 py-5 rounded-lg">
       <div className="crops-table bg-cover grid grid-rows-4 gap-2 px-5 py-5  justify-items-center">
-        <CropCardStart titleCard="Start the Game" descCard="Click here!" imgCard="https://www.jardineriaon.com/wp-content/uploads/2017/01/Agave_potatorum_var._verschaffelti-1024x768.jpg" isActive isDisabled={props.startDisabled} onClick={props.handleStartMatch}/>
+        <CropCardStart titleCard={roundCardValue.title} descCard={roundCardValue.subtitle} imgCard={roundCardValue.image} isActive isDisabled={props.startDisabled} onClick={props.handleStartMatch}/>
         {cropsBoardValue.map((crop) => (
           <CropCard cropCard={crop} isActive={props.tableIsActive}/>
         ))}

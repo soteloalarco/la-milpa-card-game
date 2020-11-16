@@ -29,7 +29,26 @@ const CARD_BACK = {
     title : "LA MILPA",
     subtitle : "CARD GAME",
     image: "https://www.jardineriaon.com/wp-content/uploads/2017/01/Agave_potatorum_var._verschaffelti-1024x768.jpg",
-    rules: ""
+    rules: "",
+    icon: "🍆"
+}
+
+const CARD_STARTGAME = {
+    key : "startgame",
+    title : "Start The Game",
+    subtitle : "Click Here",
+    image: "https://www.jardineriaon.com/wp-content/uploads/2017/01/Agave_potatorum_var._verschaffelti-1024x768.jpg",
+    rules: "",
+    icon: "🍆"
+}
+
+const CARD_NEXTROUNS = {
+    key : "nextrounds",
+    title : "LA MILPA",
+    subtitle : "Pick a crop for your Milpa.",
+    image: "https://www.jardineriaon.com/wp-content/uploads/2017/01/Agave_potatorum_var._verschaffelti-1024x768.jpg",
+    rules: "",
+    icon: "🍆"
 }
 
 const CORN_CARD = {
@@ -149,4 +168,10 @@ const player2CropSelectedState = atom({
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD , player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState};
+const roundCardState = atom({
+    key : "roundCardState",
+    default : CARD_STARTGAME,
+}
+)
+
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD , player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS};
