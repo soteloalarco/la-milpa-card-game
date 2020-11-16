@@ -8,7 +8,7 @@ export default function CropCardMilpa(props){
   const INACTIVE_CLASS="w-12 h-12 text-lg cursor-not-allowed";
 
   return (
-    <div className="parcela md:w-16 md:h-16"><button type="button" className={props.isActive ? ACTIVE_CLASS : INACTIVE_CLASS}>🌽</button></div>
+    <div className="parcela md:w-16 md:h-16"><button type="button" className={props.isActive ? ACTIVE_CLASS : INACTIVE_CLASS} disabled={!props.isActive}>🌽</button></div>
   )
 }
 

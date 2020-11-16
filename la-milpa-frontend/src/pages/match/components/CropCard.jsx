@@ -33,7 +33,7 @@ export default function CropCard(props){
 
   return (
     <div className="crop-card">
-      <button className={props.isActive ? ACTIVE_CLASS : INACTIVE_CLASS} type="button" onClick={handleOnClick}>
+      <button className={props.isActive ? ACTIVE_CLASS : INACTIVE_CLASS} type="button" disabled={!props.isActive} onClick={handleOnClick}>
         <div className="flex bg-cover p-4 bg-white rounded-xl h-full crop-card-interior text-white">
           <img alt="corn" className="h-16 w-16 rounded-full mx-0 mr-4" src={props.cropCard.image} />
           <div className="text-left">
