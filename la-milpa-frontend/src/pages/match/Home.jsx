@@ -23,7 +23,6 @@ function Home() {
     const [detailsP1, setDetailsP1] = useRecoilState(detailsP1State);
     const [detailsP2, setDetailsP2] = useRecoilState(detailsP2State);
     const currentRound = useRecoilValue(currentRoundState);
-    const [cropsBoardActive, setCropsBoardActive] = useState(false);
 
     return (
         <div className="App">
@@ -50,7 +49,7 @@ function Home() {
                             <div className="bg-gray-400 rounded-md"> Puntaje : XXX cacao</div>
                         </div>
                     </div> 
-                    <div className="flex-none shadow-2xl"><CropsTable isActive={cropsBoardActive}/></div>
+                    <div className="flex-none shadow-2xl"><CropsTable/></div>
                     <div className="flex flex-wrap flex-col justify-evenly items-center">
                         <div className="flex-none w-full w-parcela h-32 py-1">
                             <DetailsCard titleDetail={detailsP2.title} descDetail={detailsP2.subtitle} imgDetail={detailsP2.image} rulesDetail={detailsP2.rules} />
