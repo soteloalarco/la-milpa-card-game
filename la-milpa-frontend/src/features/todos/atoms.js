@@ -69,6 +69,24 @@ const BEANS_CARD = {
     icon: "🌰"
 }
 
+const TOMATO_CARD = {
+    key : "tomato",
+    title : "Tomato / Jitomate / Xitómatl",
+    subtitle: "Harvest: every round",
+    image: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/grow-tomatoes-700-350-bc4e017.jpg?quality=90&resize=960,872",
+    rules: "+5🍫 at the end if you only have 1 🍅, -10🍫 otherwhise",
+    icon: "🍅"
+}
+
+const CHILLI_CARD = {
+    key : "chilli",
+    title : "Chilli / Chile / Chili",
+    subtitle: "Harvest: from round 1 to 8",
+    image: "https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2019/12/chile-piquin.jpg",
+    rules: "+1🍫 every round, +3🍫 for each 🌶️ planted before round 9",
+    icon: "🌶️"
+}
+
 const DEFAULT_CROPS = {
     key: "null",
     icon: ""
@@ -192,4 +210,4 @@ const indexCropSelectedState = atom({
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD , player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, indexCropSelectedState};
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, TOMATO_CARD , CHILLI_CARD, player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, indexCropSelectedState};
