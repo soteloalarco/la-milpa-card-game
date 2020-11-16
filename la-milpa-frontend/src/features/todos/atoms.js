@@ -106,16 +106,28 @@ const player2TurnState = atom({
 }
 )
 
+const player1IsCropSelectedState = atom({
+    key : "player1IsCropSelectedState",
+    default : false,
+}
+)
+
+const player2IsCropSelectedState = atom({
+    key : "player2IsCropSelectedState",
+    default : false,
+}
+)
+
 const player1CropSelectedState = atom({
     key : "player1CropSelectedState",
-    default : false,
+    default : {},
 }
 )
 
 const player2CropSelectedState = atom({
     key : "player2CropSelectedState",
-    default : false,
+    default : {},
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, CROPS , player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState};
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, CROPS , player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState};

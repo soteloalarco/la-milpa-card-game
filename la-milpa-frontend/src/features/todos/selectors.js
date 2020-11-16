@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { selector } from "recoil";
 
-import { TODO_LIST_FILTERS, todoListFilterState, todoListState, milpaP1State, milpaP2State, currentRoundState ,player1TurnState, player2TurnState, player2CropSelectedState, player1CropSelectedState} from "./atoms";
+import { TODO_LIST_FILTERS, todoListFilterState, todoListState, milpaP1State, milpaP2State, currentRoundState ,player1TurnState, player2TurnState, player2IsCropSelectedState, player1IsCropSelectedState} from "./atoms";
 
 const TODO_SELECTOR_KEY = "filteredTodoSelector";
 const MILPA_P1_ISACTIVE_KEY = "milpaP1IsActiveState";
@@ -30,7 +30,7 @@ const milpaP1IsActiveState = selector({
         const milpa = get(milpaP1State);
         const round = get(currentRoundState);
         const turn = get(player1TurnState);
-        const cropSelected = get(player1CropSelectedState);
+        const cropSelected = get(player1IsCropSelectedState);
         // eslint-disable-next-line prefer-const
         let isActive = Array(16).fill(false);
         // eslint-disable-next-line array-callback-return
@@ -47,7 +47,7 @@ const milpaP2IsActiveState = selector({
         const milpa = get(milpaP2State);
         const round = get(currentRoundState);
         const turn = get(player2TurnState);
-        const cropSelected = get(player2CropSelectedState);
+        const cropSelected = get(player2IsCropSelectedState);
         // eslint-disable-next-line prefer-const
         let isActive = Array(16).fill(false);
         // eslint-disable-next-line array-callback-return
