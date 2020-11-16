@@ -7,15 +7,15 @@ export default function DetailsCard(props){
   return (
     <div className="details-card h-full ">
         <div className="flex bg-cover p-4 bg-white rounded-xl h-full w-full detail-card-interior text-white">
-          <img alt="corn" className="h-16 w-16 rounded-full mx-0 mr-4" src={props.imgDetail} />
+          <img alt="corn" className="h-16 w-16 rounded-full mx-0 mr-4" src={props.detailsCard.image} />
           <div className="text-left">
             <h3 className="text-md">
-              {props.titleDetail}
+              {props.detailsCard.title}
             </h3>
             <hr/>
-            <div className="text-sm">{props.descDetail}</div>
+            <div className="text-sm">{props.detailsCard.subtitle}</div>
             <hr/>
-            <p className="text-sm">{props.rulesDetail}</p>
+            <p className="text-sm">{props.detailsCard.rules}</p>
           </div>
         </div>
     </div>
@@ -23,8 +23,10 @@ export default function DetailsCard(props){
 }
 
 DetailsCard.propTypes ={
-  titleDetail : PropTypes.string.isRequired,
-  descDetail : PropTypes.string.isRequired,
-  imgDetail : PropTypes.string.isRequired,
-  rulesDetail : PropTypes.string.isRequired,
+  detailsCard : PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    image: PropTypes.string,
+    rules: PropTypes.string,
+  }).isRequired
 };
