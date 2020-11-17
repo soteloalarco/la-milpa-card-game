@@ -24,6 +24,26 @@ const NOT_YOUR_TURN = {
     image: "https://www.seekpng.com/png/detail/303-3038493_prohibited-transaction-rules-part-i-wait-hand-sign.png",
     rules: "Plan your turn ahead."  
 }
+const YOU_WIN = {
+    title : "You Win 🎂!",
+    subtitle : "Congratulations.",
+    image: "https://image.freepik.com/vector-gratis/you-win-sign-estilo-pop-art_175838-499.jpg",
+    rules: "Nice Milpa mi amigo."
+};
+const YOU_LOSE = {
+    title : "You Lose 😥",
+    subtitle : "But don't give up.",
+    image: "https://img.freepik.com/vector-gratis/pierdes-recursos-juego-dibujos-animados-burbuja-discurso-comico_1056-3237.jpg?size=338&ext=jpg",
+    rules: "Ask for a revancha."  
+}
+
+const A_TIE = {
+    title : "It's a Tie",
+    subtitle : "No one wins.",
+    image: "https://image.freepik.com/vector-gratis/oops-vector-explosion_53876-17099.jpg",
+    rules: "You wanted to play again anyway 😃"  
+}
+
 const CARD_BACK = {
     key : "default",
     title : "LA MILPA",
@@ -222,4 +242,4 @@ const indexCropSelectedState = atom({
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, TOMATO_CARD , CHILLI_CARD, player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, indexCropSelectedState, milpaP2ScoreEnd, milpaP1ScoreEnd};
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, TOMATO_CARD , CHILLI_CARD, player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, indexCropSelectedState, milpaP2ScoreEnd, milpaP1ScoreEnd, YOU_LOSE, YOU_WIN, A_TIE};

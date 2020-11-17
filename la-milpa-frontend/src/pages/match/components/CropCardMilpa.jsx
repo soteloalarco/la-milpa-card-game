@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useRecoilState, useRecoilValue, useSetRecoilState} from "recoil";
-import {milpaP1CropsState, milpaP2CropsState, detailsP1State, detailsP2State, milpaP1State, milpaP2State, player2IsCropSelectedState, player1IsCropSelectedState, player1TurnState, player2TurnState, NOT_YOUR_TURN, YOUR_TURN, player2CropSelectedState, player1CropSelectedState, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, TOMATO_CARD, CHILLI_CARD,milpaP2Score, milpaP1Score, indexCropSelectedState, milpaP1ScoreEnd, milpaP2ScoreEnd} from "../../../features/todos/atoms";
+import {milpaP1CropsState, milpaP2CropsState, detailsP1State, detailsP2State, milpaP1State, milpaP2State, player2IsCropSelectedState, player1IsCropSelectedState, player1TurnState, player2TurnState, NOT_YOUR_TURN, YOUR_TURN, YOU_WIN,YOU_LOSE, A_TIE, player2CropSelectedState, player1CropSelectedState, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, TOMATO_CARD, CHILLI_CARD,milpaP2Score, milpaP1Score, indexCropSelectedState, milpaP1ScoreEnd, milpaP2ScoreEnd} from "../../../features/todos/atoms";
 import computeNewScore from "../../../features/todos/scoring"
 
 export default function CropCardMilpa(props){
@@ -114,6 +114,20 @@ export default function CropCardMilpa(props){
       const newBoard = removedCardfromBoard(indexCropSelectedValue,cropsBoardValue);
       setCropsBoardState(newBoard);
       nextRound(player1TurnValue,player2TurnValue);
+
+      // Winner and Loser banners
+      if(currentRoundValue===16){
+        if(milpaP2ScoreValue > newScore){
+          setDetailsP1State(YOU_LOSE);
+          setDetailsP2State(YOU_WIN);
+        }else if(milpaP2ScoreValue < newScore){
+          setDetailsP1State(YOU_WIN);
+          setDetailsP2State(YOU_LOSE);
+        }else{
+          setDetailsP1State(A_TIE);
+          setDetailsP2State(A_TIE);
+        }
+      }
     } else{
       // eslint-disable-next-line prefer-const
       let newMilpaCrops = milpaP2CropsValue.slice();
@@ -143,6 +157,7 @@ export default function CropCardMilpa(props){
       const newBoard = removedCardfromBoard(indexCropSelectedValue,cropsBoardValue);
       setCropsBoardState(newBoard);
       nextRound(player1TurnValue,player2TurnValue);
+      
     }
    
   }
