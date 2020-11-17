@@ -56,7 +56,7 @@ const CORN_CARD = {
     title : "Corn / Maíz / Tlaolli",
     subtitle: "Harvest: round 13 - Tepeíhuitl",
     image : "https://cdn-3.expansion.mx/dims4/default/7d1e4df/2147483647/strip/true/crop/5616x3744+0+0/resize/800x533!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2F76%2Ffa%2Fdce19d2f4136ad3f8c5636819170%2Fshutterstock-282467993.jpg",
-    rules : "+1🍫 per round, +5🍫 per completed row/column at the end.",
+    rules : "+1🍫 when planted, +5🍫 per completed row/column at the end.",
     icon: "🌽"
 }
 
@@ -114,6 +114,12 @@ const milpaP1Score = atom({
 }
 )
 
+const milpaP1ScoreEnd = atom({
+    key : "milpaP1ScoreEnd",
+    default : 0,
+}
+)
+
 const milpaP1CropsState = atom({
     key : "milpaP1CropsState",
     default : Array(16).fill(DEFAULT_CROPS),
@@ -134,6 +140,12 @@ const milpaP2State = atom({
 
 const milpaP2Score = atom({
     key : "milpaP2Score",
+    default : 0,
+}
+)
+
+const milpaP2ScoreEnd = atom({
+    key : "milpaP2ScoreEnd",
     default : 0,
 }
 )
@@ -210,4 +222,4 @@ const indexCropSelectedState = atom({
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, TOMATO_CARD , CHILLI_CARD, player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, indexCropSelectedState};
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, TOMATO_CARD , CHILLI_CARD, player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, indexCropSelectedState, milpaP2ScoreEnd, milpaP1ScoreEnd};

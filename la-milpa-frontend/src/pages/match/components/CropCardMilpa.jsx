@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useRecoilState, useRecoilValue, useSetRecoilState} from "recoil";
-import {milpaP1CropsState, milpaP2CropsState, detailsP1State, detailsP2State, milpaP1State, milpaP2State, player2IsCropSelectedState, player1IsCropSelectedState, player1TurnState, player2TurnState, NOT_YOUR_TURN, YOUR_TURN, player2CropSelectedState, player1CropSelectedState, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, TOMATO_CARD, CHILLI_CARD,milpaP2Score, milpaP1Score, indexCropSelectedState} from "../../../features/todos/atoms";
+import {milpaP1CropsState, milpaP2CropsState, detailsP1State, detailsP2State, milpaP1State, milpaP2State, player2IsCropSelectedState, player1IsCropSelectedState, player1TurnState, player2TurnState, NOT_YOUR_TURN, YOUR_TURN, player2CropSelectedState, player1CropSelectedState, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, TOMATO_CARD, CHILLI_CARD,milpaP2Score, milpaP1Score, indexCropSelectedState, milpaP1ScoreEnd, milpaP2ScoreEnd} from "../../../features/todos/atoms";
 import computeNewScore from "../../../features/todos/scoring"
 
 export default function CropCardMilpa(props){
@@ -29,6 +29,8 @@ export default function CropCardMilpa(props){
   const [cropsBoardValue, setCropsBoardState] = useRecoilState(cropsBoardState);
   const [milpaP1ScoreValue, setMilpaP1ScoreState] = useRecoilState(milpaP1Score);
   const [milpaP2ScoreValue, setMilpaP2ScoreState] = useRecoilState(milpaP2Score);
+  const [milpaP1ScoreEndValue, setMilpaP1ScoreEndState] = useRecoilState(milpaP1ScoreEnd);
+  const [milpaP2ScoreEndValue, setMilpaP2ScoreEndState] = useRecoilState(milpaP2ScoreEnd);
   const indexCropSelectedValue = useRecoilValue(indexCropSelectedState);
 
   const refillCropsTable= ()=> {
@@ -95,11 +97,13 @@ export default function CropCardMilpa(props){
       newMilpa[props.indexMilpaCrop] = false;
 
       const lastScore = milpaP1ScoreValue;
-      const newScore = computeNewScore({
+      const lastScoreEnd = milpaP1ScoreEnd;
+      const [newScore,newScoreEnd] = computeNewScore({
         key : detailsP1Value.key,
         icon : detailsP1Value.icon,
-      },milpaP1CropsValue,lastScore );
+      },newMilpaCrops,lastScore,lastScoreEnd , currentRoundValue);
       setMilpaP1ScoreState(newScore);
+      setMilpaP1ScoreEndState(newScoreEnd);
 
       SetMilpaP1State(newMilpa);
       SetMilpaP1CropsState(newMilpaCrops);
@@ -122,11 +126,13 @@ export default function CropCardMilpa(props){
       newMilpa[props.indexMilpaCrop%16] = false;
 
       const lastScore = milpaP2ScoreValue;
-      const newScore = computeNewScore({
+      const lastScoreEnd = milpaP2ScoreEnd;
+      const [newScore,newScoreEnd] = computeNewScore({
         key : detailsP2Value.key,
         icon : detailsP2Value.icon,
-      },milpaP2CropsValue,lastScore );
+      },newMilpaCrops,lastScore, lastScoreEnd , currentRoundValue);
       setMilpaP2ScoreState(newScore);
+      setMilpaP2ScoreEndState(newScoreEnd);
 
       SetMilpaP2State(newMilpa);
       SetMilpaP2CropsState(newMilpaCrops)
