@@ -94,7 +94,7 @@ const TOMATO_CARD = {
     title : "Tomato / Jitomate / Xitómatl",
     subtitle: "Harvest: every round",
     image: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/grow-tomatoes-700-350-bc4e017.jpg?quality=90&resize=960,872",
-    rules: "+5🍫 at the end if you only have 1 🍅, -10🍫 otherwhise",
+    rules: "+5🍫 at the end if you have 3 🍅 or fewer, -15🍫 otherwhise",
     icon: "🍅"
 }
 

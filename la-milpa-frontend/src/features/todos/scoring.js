@@ -85,6 +85,24 @@ const scoreBeans = (newCrop,index, newMilpa, currentRound) => {
   return [newScore, newScoreEnd];
 }
 
+const scoreTomato = (newCrop, newMilpa, currentRound) => {
+  let newScore = 0;
+  let newScoreEnd = 0;
+
+  const totalTomato = newMilpa.filter(crop => crop.key==='tomato').length;
+  newScore += totalTomato;
+
+  if(currentRound=== 16 ){
+    if (totalTomato > 3){
+      newScoreEnd += -15;
+    }else{
+      newScoreEnd += 5;
+    }
+  }
+
+  return [newScore, newScoreEnd];
+}
+
 const computeNewScore = (newCrop, index, newMilpa, lastScore, lastScoreEnd,currentRound) => {
 
   let newScore = 0;
@@ -92,9 +110,10 @@ const computeNewScore = (newCrop, index, newMilpa, lastScore, lastScoreEnd,curre
 
   const [newCorn, newCornEnd] = scoreCorn(newCrop,newMilpa,currentRound);
   const [newBeans, newBeansEnd] = scoreBeans(newCrop,index,newMilpa,currentRound);
+  const [newTomato, newTomatoEnd] = scoreTomato(newCrop,newMilpa,currentRound);
 
-  newScore += lastScore + newCorn + newBeans;
-  newScoreEnd += lastScoreEnd + newCornEnd + newBeansEnd;
+  newScore += lastScore + newCorn + newBeans + newTomato;
+  newScoreEnd += lastScoreEnd + newCornEnd + newBeansEnd + newTomatoEnd;
 
   if(currentRound === 16){
     newScore+=newScoreEnd;
