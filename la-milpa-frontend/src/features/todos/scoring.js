@@ -21,14 +21,14 @@ const scoreCorn = (newCrop, newMilpa, currentRound) => {
     newScore ++;
   }
   if(currentRound=== 16){
-    const scoreCol0 = newMilpa[COL0[0]].key==='corn' && newMilpa[COL0[1]].key==='corn' && newMilpa[COL0[2]].key==='corn' && newMilpa[COL0[3]].key==='corn' ? 10 : 0;
-    const scoreCol1 = newMilpa[COL1[0]].key==='corn' && newMilpa[COL1[1]].key==='corn' && newMilpa[COL1[2]].key==='corn' && newMilpa[COL1[3]].key==='corn' ? 10 : 0;
-    const scoreCol2 = newMilpa[COL2[0]].key==='corn' && newMilpa[COL2[1]].key==='corn' && newMilpa[COL2[2]].key==='corn' && newMilpa[COL2[3]].key==='corn' ? 10 : 0;
-    const scoreCol3 = newMilpa[COL3[0]].key==='corn' && newMilpa[COL3[1]].key==='corn' && newMilpa[COL3[2]].key==='corn' && newMilpa[COL3[3]].key==='corn' ? 10 : 0;
-    const scoreRow0 = newMilpa[ROW0[0]].key==='corn' && newMilpa[ROW0[1]].key==='corn' && newMilpa[ROW0[2]].key==='corn' && newMilpa[ROW0[3]].key==='corn' ? 10 : 0;
-    const scoreRow1 = newMilpa[ROW1[0]].key==='corn' && newMilpa[ROW1[1]].key==='corn' && newMilpa[ROW1[2]].key==='corn' && newMilpa[ROW1[3]].key==='corn' ? 10 : 0;
-    const scoreRow2 = newMilpa[ROW2[0]].key==='corn' && newMilpa[ROW2[1]].key==='corn' && newMilpa[ROW2[2]].key==='corn' && newMilpa[ROW2[3]].key==='corn' ? 10 : 0;
-    const scoreRow3 = newMilpa[ROW3[0]].key==='corn' && newMilpa[ROW3[1]].key==='corn' && newMilpa[ROW3[2]].key==='corn' && newMilpa[ROW3[3]].key==='corn' ? 10 : 0;
+    const scoreCol0 = newMilpa[COL0[0]].key==='corn' && newMilpa[COL0[1]].key==='corn' && newMilpa[COL0[2]].key==='corn' && newMilpa[COL0[3]].key==='corn' ? 15 : 0;
+    const scoreCol1 = newMilpa[COL1[0]].key==='corn' && newMilpa[COL1[1]].key==='corn' && newMilpa[COL1[2]].key==='corn' && newMilpa[COL1[3]].key==='corn' ? 15 : 0;
+    const scoreCol2 = newMilpa[COL2[0]].key==='corn' && newMilpa[COL2[1]].key==='corn' && newMilpa[COL2[2]].key==='corn' && newMilpa[COL2[3]].key==='corn' ? 15 : 0;
+    const scoreCol3 = newMilpa[COL3[0]].key==='corn' && newMilpa[COL3[1]].key==='corn' && newMilpa[COL3[2]].key==='corn' && newMilpa[COL3[3]].key==='corn' ? 15 : 0;
+    const scoreRow0 = newMilpa[ROW0[0]].key==='corn' && newMilpa[ROW0[1]].key==='corn' && newMilpa[ROW0[2]].key==='corn' && newMilpa[ROW0[3]].key==='corn' ? 15 : 0;
+    const scoreRow1 = newMilpa[ROW1[0]].key==='corn' && newMilpa[ROW1[1]].key==='corn' && newMilpa[ROW1[2]].key==='corn' && newMilpa[ROW1[3]].key==='corn' ? 15 : 0;
+    const scoreRow2 = newMilpa[ROW2[0]].key==='corn' && newMilpa[ROW2[1]].key==='corn' && newMilpa[ROW2[2]].key==='corn' && newMilpa[ROW2[3]].key==='corn' ? 15 : 0;
+    const scoreRow3 = newMilpa[ROW3[0]].key==='corn' && newMilpa[ROW3[1]].key==='corn' && newMilpa[ROW3[2]].key==='corn' && newMilpa[ROW3[3]].key==='corn' ? 15 : 0;
 
     newScoreEnd+= scoreCol0 + scoreCol1 +scoreCol2 + scoreCol3 + scoreRow0 + scoreRow1 +scoreRow2 + scoreRow3;
   }
@@ -38,7 +38,7 @@ const scoreCorn = (newCrop, newMilpa, currentRound) => {
 const scoreBeans = (newCrop,index, newMilpa, currentRound) => {
   let newScore = 0;
   let newScoreEnd = 0;
-  if(currentRound <= 6){
+  if(currentRound <= 4){
     const totalBeans = newMilpa.filter(crop => crop.key==='beans').length;
     newScore += totalBeans;
   }
@@ -103,6 +103,25 @@ const scoreTomato = (newCrop, newMilpa, currentRound) => {
   return [newScore, newScoreEnd];
 }
 
+const scoreChilli = (newCrop, newMilpa, currentRound) => {
+  let newScore = 0;
+  let newScoreEnd = 0;
+
+  if(newCrop.key === 'chilli'){
+    newScore += 3;
+  }
+
+  if(currentRound <= 8){
+    const totalBeans = newMilpa.filter(crop => crop.key==='chilli').length;
+    newScore += totalBeans;
+    if(newCrop.key === 'chilli'){
+      newScoreEnd += 3;
+    }
+  }
+
+  return [newScore, newScoreEnd];
+}
+
 const computeNewScore = (newCrop, index, newMilpa, lastScore, lastScoreEnd,currentRound) => {
 
   let newScore = 0;
@@ -111,9 +130,10 @@ const computeNewScore = (newCrop, index, newMilpa, lastScore, lastScoreEnd,curre
   const [newCorn, newCornEnd] = scoreCorn(newCrop,newMilpa,currentRound);
   const [newBeans, newBeansEnd] = scoreBeans(newCrop,index,newMilpa,currentRound);
   const [newTomato, newTomatoEnd] = scoreTomato(newCrop,newMilpa,currentRound);
+  const [newChilli, newChilliEnd] = scoreChilli(newCrop,newMilpa,currentRound);
 
-  newScore += lastScore + newCorn + newBeans + newTomato;
-  newScoreEnd += lastScoreEnd + newCornEnd + newBeansEnd + newTomatoEnd;
+  newScore += lastScore + newCorn + newBeans + newTomato + newChilli;
+  newScoreEnd += lastScoreEnd + newCornEnd + newBeansEnd + newTomatoEnd + newChilliEnd;
 
   if(currentRound === 16){
     newScore+=newScoreEnd;

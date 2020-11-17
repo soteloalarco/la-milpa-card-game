@@ -76,14 +76,14 @@ const CORN_CARD = {
     title : "Corn / Maíz / Tlaolli",
     subtitle: "Harvest: round 13 - Tepeíhuitl",
     image : "https://cdn-3.expansion.mx/dims4/default/7d1e4df/2147483647/strip/true/crop/5616x3744+0+0/resize/800x533!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2F76%2Ffa%2Fdce19d2f4136ad3f8c5636819170%2Fshutterstock-282467993.jpg",
-    rules : "+1🍫 when planted, +10🍫 per completed row/column at the end.",
+    rules : "+1🍫 when planted, +15🍫 per completed row/column at the end.",
     icon: "🌽"
 }
 
 const BEANS_CARD = {
     key : "beans",
     title : "Beans / Frijol / Etl",
-    subtitle: "Harvest: from round 1 to round 6",
+    subtitle: "Harvest: from round 1 to round 4",
     image: "https://static.producer.com/wp-content/uploads/2017/02/08-pinto-blackbeans.jpg",
     rules: "+3🍫 per adjacent 🌽 at the end.",
     icon: "🌰"
@@ -103,7 +103,7 @@ const CHILLI_CARD = {
     title : "Chilli / Chile / Chili",
     subtitle: "Harvest: from round 1 to 8",
     image: "https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2019/12/chile-piquin.jpg",
-    rules: "+1🍫 every round, +3🍫 for each 🌶️ planted before round 9",
+    rules: "+3🍫 when planted, +3🍫 for each 🌶️ planted before round 9",
     icon: "🌶️"
 }
 
