@@ -101,7 +101,7 @@ export default function CropCardMilpa(props){
       const [newScore,newScoreEnd] = computeNewScore({
         key : detailsP1Value.key,
         icon : detailsP1Value.icon,
-      },newMilpaCrops,lastScore,lastScoreEnd , currentRoundValue);
+      },props.indexMilpaCrop,newMilpaCrops,lastScore,lastScoreEnd , currentRoundValue);
       setMilpaP1ScoreState(newScore);
       setMilpaP1ScoreEndState(newScoreEnd);
 
@@ -144,7 +144,7 @@ export default function CropCardMilpa(props){
       const [newScore,newScoreEnd] = computeNewScore({
         key : detailsP2Value.key,
         icon : detailsP2Value.icon,
-      },newMilpaCrops,lastScore, lastScoreEnd , currentRoundValue);
+      },props.indexMilpaCrop%16,newMilpaCrops,lastScore, lastScoreEnd , currentRoundValue);
       setMilpaP2ScoreState(newScore);
       setMilpaP2ScoreEndState(newScoreEnd);
 
