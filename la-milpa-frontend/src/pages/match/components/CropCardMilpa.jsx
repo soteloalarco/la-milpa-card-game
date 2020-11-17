@@ -97,7 +97,7 @@ export default function CropCardMilpa(props){
       newMilpa[props.indexMilpaCrop] = false;
 
       const lastScore = milpaP1ScoreValue;
-      const lastScoreEnd = milpaP1ScoreEnd;
+      const lastScoreEnd = milpaP1ScoreEndValue;
       const [newScore,newScoreEnd] = computeNewScore({
         key : detailsP1Value.key,
         icon : detailsP1Value.icon,
@@ -126,7 +126,7 @@ export default function CropCardMilpa(props){
       newMilpa[props.indexMilpaCrop%16] = false;
 
       const lastScore = milpaP2ScoreValue;
-      const lastScoreEnd = milpaP2ScoreEnd;
+      const lastScoreEnd = milpaP2ScoreEndValue;
       const [newScore,newScoreEnd] = computeNewScore({
         key : detailsP2Value.key,
         icon : detailsP2Value.icon,
