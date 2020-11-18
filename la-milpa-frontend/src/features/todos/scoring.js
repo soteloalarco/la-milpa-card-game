@@ -122,6 +122,48 @@ const scoreChilli = (newCrop, newMilpa, currentRound) => {
   return [newScore, newScoreEnd];
 }
 
+const scoreTomatillo = (newCrop, newMilpa, currentRound) => {
+  let newScore = 0;
+  let newScoreEnd = 0;
+
+  let penalizationTop= (newMilpaAux,crop,index) => {
+    return crop.key==='tomatillo'&& index-4 >= 0 ? newMilpaAux[index-4].key==='chilli' : false;
+  }
+  let penalizationDown= (newMilpaAux,crop,index) => {
+   return crop.key==='tomatillo'&& index+4 < 16 ? newMilpaAux[index+4].key==='chilli' : false;
+  }
+  let penalizationLeft= (newMilpaAux,crop,index) => {
+   return crop.key==='tomatillo'&& index-1 >= 0 ? newMilpaAux[index-1].key==='chilli' && (index - 1)%4 !== 3 : false;
+ }
+   let penalizationRight= (newMilpaAux,crop,index) => {
+   return crop.key==='tomatillo'&& index+1 < 16 ? newMilpaAux[index+1].key==='chilli' && (index + 1)%4 !== 0 : false;
+ }
+
+  if(currentRound <= 8 && currentRound > 5){
+    const totalTomatillo = newMilpa.filter(crop => crop.key==='tomatillo').length;
+    newScore += totalTomatillo;
+  }
+
+  if(currentRound === 16){
+    let penalization = false;
+    const penalizationVector = newMilpa.map((crop,index) => 
+        penalizationTop(newMilpa,crop,index) || penalizationDown(newMilpa,crop,index) ||penalizationLeft(newMilpa,crop,index) || penalizationRight(newMilpa,crop,index)
+     )
+    penalization = penalization || penalizationVector[0] || penalizationVector[1] || penalizationVector[2] || penalizationVector[3] || penalizationVector[4] || penalizationVector[5] || penalizationVector[6] || penalizationVector[7] || penalizationVector[8] || penalizationVector[9] || penalizationVector[10] || penalizationVector[11] || penalizationVector[12] || penalizationVector[13] || penalizationVector[14] || penalizationVector[15];
+
+    if(penalization){
+      newScoreEnd += -10;
+    }
+    else{
+      const totalChilli = newMilpa.filter(crop => crop.key==='chilli').length;
+      const totalTomatillo = newMilpa.filter(crop => crop.key==='tomatillo').length;
+      newScoreEnd += totalChilli*totalTomatillo*5;
+    }
+  }
+
+  return [newScore, newScoreEnd];
+}
+
 const computeNewScore = (newCrop, index, newMilpa, lastScore, lastScoreEnd,currentRound) => {
 
   let newScore = 0;
@@ -131,9 +173,10 @@ const computeNewScore = (newCrop, index, newMilpa, lastScore, lastScoreEnd,curre
   const [newBeans, newBeansEnd] = scoreBeans(newCrop,index,newMilpa,currentRound);
   const [newTomato, newTomatoEnd] = scoreTomato(newCrop,newMilpa,currentRound);
   const [newChilli, newChilliEnd] = scoreChilli(newCrop,newMilpa,currentRound);
+  const [newTomatillo, newTomatilloEnd] = scoreTomatillo(newCrop,newMilpa,currentRound);
 
-  newScore += lastScore + newCorn + newBeans + newTomato + newChilli;
-  newScoreEnd += lastScoreEnd + newCornEnd + newBeansEnd + newTomatoEnd + newChilliEnd;
+  newScore += lastScore + newCorn + newBeans + newTomato + newChilli +newTomatillo;
+  newScoreEnd += lastScoreEnd + newCornEnd + newBeansEnd + newTomatoEnd + newChilliEnd +newTomatilloEnd;
 
   if(currentRound === 16){
     newScore+=newScoreEnd;

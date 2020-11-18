@@ -107,6 +107,15 @@ const CHILLI_CARD = {
     icon: "🌶️"
 }
 
+const TOMATILLO_CARD = {
+    key : "tomatillo",
+    title : "Tomatillo / Tomate / Tomátl",
+    subtitle: "Harvest: from round 6 to 8",
+    image: "https://images-na.ssl-images-amazon.com/images/I/5144z3CgoxL._AC_SX450_.jpg",
+    rules: "At the end +5🍫 for each 🌶️, -10🍫 if there's an adjacent 🌶️",
+    icon: "🍈"
+}
+
 const DEFAULT_CROPS = {
     key: "null",
     icon: ""
@@ -242,4 +251,4 @@ const indexCropSelectedState = atom({
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, TOMATO_CARD , CHILLI_CARD, player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, indexCropSelectedState, milpaP2ScoreEnd, milpaP1ScoreEnd, YOU_LOSE, YOU_WIN, A_TIE};
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, TOMATILLO_CARD, TOMATO_CARD , CHILLI_CARD, player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, indexCropSelectedState, milpaP2ScoreEnd, milpaP1ScoreEnd, YOU_LOSE, YOU_WIN, A_TIE};

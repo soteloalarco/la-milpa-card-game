@@ -3,14 +3,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useRecoilState, useRecoilValue, useSetRecoilState} from "recoil";
-import {milpaP1CropsState, milpaP2CropsState, detailsP1State, detailsP2State, milpaP1State, milpaP2State, player2IsCropSelectedState, player1IsCropSelectedState, player1TurnState, player2TurnState, NOT_YOUR_TURN, YOUR_TURN, YOU_WIN,YOU_LOSE, A_TIE, player2CropSelectedState, player1CropSelectedState, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, TOMATO_CARD, CHILLI_CARD,milpaP2Score, milpaP1Score, indexCropSelectedState, milpaP1ScoreEnd, milpaP2ScoreEnd} from "../../../features/todos/atoms";
+import {milpaP1CropsState, milpaP2CropsState, detailsP1State, detailsP2State, milpaP1State, milpaP2State, player2IsCropSelectedState, player1IsCropSelectedState, player1TurnState, player2TurnState, NOT_YOUR_TURN, YOUR_TURN, YOU_WIN,YOU_LOSE, A_TIE, player2CropSelectedState, player1CropSelectedState, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, TOMATO_CARD, TOMATILLO_CARD, CHILLI_CARD,milpaP2Score, milpaP1Score, indexCropSelectedState, milpaP1ScoreEnd, milpaP2ScoreEnd} from "../../../features/todos/atoms";
 import computeNewScore from "../../../features/todos/scoring"
 
 export default function CropCardMilpa(props){
 
   const ACTIVE_CLASS="w-12 h-12 text-lg";
   const INACTIVE_CLASS="w-12 h-12 text-lg cursor-not-allowed";
-  const CROPS=[CORN_CARD, BEANS_CARD, TOMATO_CARD, CHILLI_CARD];
+  const CROPS=[CORN_CARD, BEANS_CARD, TOMATO_CARD, CHILLI_CARD, TOMATILLO_CARD];
   const [milpaP1CropsValue, SetMilpaP1CropsState] = useRecoilState(milpaP1CropsState);
   const [milpaP2CropsValue, SetMilpaP2CropsState] = useRecoilState(milpaP2CropsState);
   const [milpaP1Value, SetMilpaP1State] = useRecoilState(milpaP1State);
@@ -38,7 +38,7 @@ export default function CropCardMilpa(props){
     let newCropsBoard= Array(3).fill(null);
     // eslint-disable-next-line array-callback-return
     newCropsBoard.map((crop,index) => {
-      newCropsBoard[index] = CROPS[Math.floor(Math.random()*4)]
+      newCropsBoard[index] = CROPS[Math.floor(Math.random()*5)]
     });
     setCropsBoardState(newCropsBoard);
   }
