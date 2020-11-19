@@ -45,7 +45,7 @@ export default function CropsTable(props){
 
   return (
     <div className="crops px-5 py-5 rounded-lg">
-      <div className="crops-table bg-cover grid grid-rows-4 gap-2 px-5 py-5  justify-items-center">
+      <div className="crops-table bg-cover bg-center grid grid-rows-4 gap-2 px-5 py-5  justify-items-center">
         <CropCardStart titleCard={roundCardValue.title} descCard={roundCardValue.subtitle} imgCard={roundCardValue.image} isActive isDisabled={props.startDisabled} onClick={props.handleStartMatch}/>
         {cropsBoardValue.map((crop,index) => (
           <CropCard cropCard={crop} cardIndex={index} isActive={props.tableIsActive}/>

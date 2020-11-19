@@ -86,11 +86,11 @@ function Home() {
                             <DetailsCard detailsCard={detailsP1Value} />
                         </div>
                         <div className="flex-none w-full">
-                            <div className="bg-gray-400 rounded-md"> La Milpa de Rolando</div>
+                            <div className="bg-gray-400 rounded-md"> La Milpa de Player 1</div>
                         </div>
                         <div className="flex-none shadow-2xl"><MilpaBoard milpaIsActive={milpaP1IsActive} playerNumber={0} milpaCropsValue={milpaP1CropsValue}/></div>
                         <div className="flex-none w-full">
-                            <div className="bg-gray-400 rounded-md"> Puntaje : {milpaP1ScoreValue} cacao</div>
+                            <div className="bg-gray-400 rounded-md"> Puntaje : {milpaP1ScoreValue} cacao 🍫</div>
                         </div>
                     </div> 
                     <div className="flex-none shadow-2xl"><CropsTable startDisabled={!startIsActiveValue} handleStartMatch={handleStartMatch} tableIsActive={tableIsActiveValue}/></div>
@@ -99,11 +99,11 @@ function Home() {
                             <DetailsCard detailsCard={detailsP2Value}/>
                         </div>
                         <div className="flex-none w-full">
-                            <div className="bg-gray-400 rounded-md"> La Milpa de Gabriela</div>
+                            <div className="bg-gray-400 rounded-md"> La Milpa de Player 2</div>
                         </div>
                         <div className="flex-none shadow-2xl"><MilpaBoard milpaIsActive={milpaP2IsActive} playerNumber={1} milpaCropsValue={milpaP2CropsValue}/></div>
                         <div className="flex-none w-full">
-                            <div className="bg-gray-400 rounded-md"> Puntaje : {milpaP2ScoreValue} cacao</div>
+                            <div className="bg-gray-400 rounded-md"> Puntaje : {milpaP2ScoreValue} Cacao 🍫</div>
                         </div>
                     </div>  
                 </div>

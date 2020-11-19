@@ -44,15 +44,19 @@ code {
 }
 
 .milpa-interior {
-    background-image: url("https://static8.depositphotos.com/1010262/972/i/600/depositphotos_9728134-stock-photo-sowing-time.jpg");
+    background-image: url("../assets/images/milpa-grid-la-milpa.png");
 }
 
 .crops-table {
-    background-image: url("https://cdn.shopify.com/s/files/1/2954/2248/products/Sweet-Corn-Bodacious-Hybrid-Vegetable-Ferry-Morse_1400x.jpg?v=1582921331");
+    background-image: url("../assets/images/milpa-2-la-milpa.png");
 }
 
 .crop-card {
-    @apply w-64 h-24 shadow-2xl rounded-xl;
+    @apply h-24 shadow-2xl rounded-xl;
+}
+
+.crop-card-width {
+    width: 18rem;
 }
 
 .details-card {
@@ -60,15 +64,15 @@ code {
 }
 
 .w-parcela {
-    max-width: 360px;
+    width: 22rem;
 }
 
 .crop-card-interior {
-    background-image: url("https://media.istockphoto.com/photos/dark-wood-plank-background-picture-id599752764?k=6&m=599752764&s=170667a&w=0&h=Ybg37oGPAn7NAKqCYuk-wY6LX_NYyNZ37Tu28aouZsk=");
+    background-color: #62760c;
 }
 
 .detail-card-interior {
-    background-image: url("https://5.imimg.com/data5/SJ/SB/MY-23150508/20mm-black-stone-aggregate-500x500.jpg");
+    background-color: #523906;
 }
 
 ol,
@@ -119,11 +123,11 @@ ul {
 }
 
 .milpa {
-    background-color: #206a5d;
+    background-color: #62760c;
 }
 
 .crops {
-    background-color: #81b214;
+    background-color: #62760c;
 }
 
 .main-board {
