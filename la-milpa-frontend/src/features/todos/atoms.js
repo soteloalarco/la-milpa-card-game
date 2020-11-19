@@ -95,7 +95,7 @@ const TOMATO_CARD = {
     title : "Tomato / Xitómatl 🍅",
     subtitle: "Harvest: every round",
     image: "/assets/images/tomato-la-milpa.png",
-    rules: "+5🍫 at the end if you have 3 🍅 or fewer, -15🍫 otherwhise",
+    rules: "+5🍫 at the end if you have 3 🍅 or fewer, -15🍫 otherwhise.",
     icon: "🍅"
 }
 
@@ -104,7 +104,7 @@ const CHILLI_CARD = {
     title : "Chilli / Chili 🌶️",
     subtitle: "Harvest: from round 1 to 8",
     image: "/assets/images/chilli-la-milpa.png",
-    rules: "+3🍫 when planted, +3🍫 for each 🌶️ planted before round 9",
+    rules: "+3🍫 when planted, +3🍫 for each 🌶️ planted before round 9.",
     icon: "🌶️"
 }
 
@@ -113,7 +113,7 @@ const TOMATILLO_CARD = {
     title : "Tomatillo / Tomátl 🍈",
     subtitle: "Harvest: from round 6 to 8",
     image: "/assets/images/tomatillo-la-milpa.png",
-    rules: "At the end +5🍫 for each 🌶️, -10🍫 if there's an adjacent 🌶️",
+    rules: "At the end +5🍫 for each 🌶️, -10🍫 if there's an adjacent 🌶️.",
     icon: "🍈"
 }
 
