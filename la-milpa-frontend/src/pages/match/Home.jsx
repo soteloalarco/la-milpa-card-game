@@ -33,8 +33,6 @@ function Home() {
     const [cropsBoardValue, setCropsBoardState] = useRecoilState(cropsBoardState);
     const [tableIsActiveValue, setTableIsActiveValue] = useState(false);
     const [startIsActiveValue, setStartIsActiveValue] = useState(true);
-    const player1TurnValue = useRecoilValue(player1TurnState);
-    const player2TurnValue = useRecoilValue(player2TurnState);
     const [player1CropSelectedValue ,setPlayer1CropSelectedState] = useRecoilState(player1CropSelectedState);
     const [player2CropSelectedValue ,setPlayer2CropSelectedState] = useRecoilState(player2CropSelectedState);
     const setPlayer1IsCropSelectedState = useSetRecoilState(player1IsCropSelectedState);
