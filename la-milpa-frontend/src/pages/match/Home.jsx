@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
 import React, {useState} from "react";
 import {useRecoilState, useRecoilValue, useSetRecoilState} from "recoil";
@@ -7,7 +8,7 @@ import CropsTable from "./components/CropsTable"
 import DetailsCard from "./components/DetailsCard"
 import RoundCounter from "./components/RoundCounter"
 
-import {detailsP1State,detailsP2State, ROUND_NAMES, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState, player1IsCropSelectedState, player2IsCropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score} from "../../features/todos/atoms";
+import {detailsP1State,detailsP2State, ROUND_NAMES, currentRoundState, cropsBoardState, CORN_CARD, BEANS_CARD, TOMATO_CARD, TOMATILLO_CARD, CHILLI_CARD, player1TurnState, player2TurnState, player1CropSelectedState, player2CropSelectedState, player1IsCropSelectedState, player2IsCropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, deckState} from "../../features/todos/atoms";
 import { milpaP1IsActiveState, milpaP2IsActiveState, milpaP1ScoreState, milpaP2ScoreState } from "../../features/todos/selectors";
 
 
@@ -20,7 +21,6 @@ const yourTurnCard = {
 }
 
 function Home() {
-    const CROPS=[CORN_CARD, BEANS_CARD]
     const [detailsP1Value, setDetailsP1State] = useRecoilState(detailsP1State);
     const [detailsP2Value, setDetailsP2State] = useRecoilState(detailsP2State);
     const [currentRoundValue, setCurrentRoundState] = useRecoilState(currentRoundState);
@@ -40,14 +40,37 @@ function Home() {
     const setPlayer1IsCropSelectedState = useSetRecoilState(player1IsCropSelectedState);
     const setPlayer2IsCropSelectedState = useSetRecoilState(player2IsCropSelectedState);
     const setRoundCardState= useSetRecoilState(roundCardState);
+    const setDeckState= useSetRecoilState(deckState);
 
-    const refillCropsTable= ()=> {
-        // eslint-disable-next-line prefer-const
+    const shuffle= (array) =>{
+        for (let i = array.length - 1; i > 0; i--) {
+          // eslint-disable-next-line prefer-const
+          let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+      
+          // swap elements array[i] and array[j]
+          // same can be written as:
+          // let t = array[i]; array[i] = array[j]; array[j] = t
+          // eslint-disable-next-line no-param-reassign
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+
+    const shuffleAndRefillCropsTable= ()=> {
+        let deck= Array(50).fill(null);
+        deck.fill(CORN_CARD,0,17);
+        deck.fill(BEANS_CARD, 17, 27);
+        deck.fill(TOMATO_CARD, 27, 36);
+        deck.fill(CHILLI_CARD, 36, 43);
+        deck.fill(TOMATILLO_CARD, 43, 50);
+        shuffle(deck);
+
         let newCropsBoard= Array(3).fill(null);
         // eslint-disable-next-line array-callback-return
         newCropsBoard.map((crop,index) => {
-          newCropsBoard[index] = CROPS[Math.floor(Math.random()*2)]
+          newCropsBoard[index] = deck.pop();
+          
         });
+        setDeckState(deck);
         setCropsBoardState(newCropsBoard);
       }
     
@@ -61,7 +84,7 @@ function Home() {
         setPlayer2CropSelectedState({});
         setPlayer2IsCropSelectedState(false);
         setCurrentRoundState(round => round +1); 
-        refillCropsTable();
+        shuffleAndRefillCropsTable();
         setTableIsActiveValue(true);
         setStartIsActiveValue(false);
         setRoundCardState(CARD_NEXTROUNS);

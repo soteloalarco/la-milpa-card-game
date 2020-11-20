@@ -6,6 +6,7 @@ const TODO_LIST_FILTERS = ["Show All", "Show Completed", "Show Incomplete"];
 const ROUND_NAMES = ["Atlcahualo", "Tlacaxipe-hualiztli", "Tozoztontli", "Huey tozoztli", "Tóxcatl", "Etzalcualiztli", "Tecuilhuitontli" , "Huey tecuílhuitl", "Tlaxochimaco-miccailhuitontli", "Xocotlhuetzi-huey", "Ochpaniztli", "Teotleco", "Tepeilhuitl", "Quecholli", "Panque-tzaliztli", "Atemoztli"];
 
 
+
 const GAME_START = {
     title : "Game is About to Start!",
     subtitle : "Good luck and have fun.",
@@ -252,4 +253,10 @@ const indexCropSelectedState = atom({
 }
 )
 
-export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, TOMATILLO_CARD, TOMATO_CARD , CHILLI_CARD, player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, indexCropSelectedState, milpaP2ScoreEnd, milpaP1ScoreEnd, YOU_LOSE, YOU_WIN, A_TIE};
+const deckState = atom({
+    key : "deckState",
+    default : Array(50).fill(CARD_BACK),
+}
+)
+
+export { todoListFilterState, todoListState, TODO_LIST_FILTERS , milpaP1State, milpaP2State , cropsBoardState , currentRoundState, detailsP1State ,detailsP2State, ROUND_NAMES, CORN_CARD, BEANS_CARD, TOMATILLO_CARD, TOMATO_CARD , CHILLI_CARD, player1TurnState, player2TurnState, player1IsCropSelectedState, player2IsCropSelectedState, player1CropSelectedState, player2CropSelectedState, YOUR_TURN, NOT_YOUR_TURN, milpaP1CropsState, milpaP2CropsState, roundCardState, CARD_NEXTROUNS, milpaP1Score, milpaP2Score, indexCropSelectedState, milpaP2ScoreEnd, milpaP1ScoreEnd, YOU_LOSE, YOU_WIN, A_TIE, deckState, CARD_BACK};
