@@ -57,6 +57,14 @@ code {
 
 .crop-card-width {
     width: 18rem;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1rem;
+}
+
+.crop-card-start {
+    width: 18rem;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.2rem;
 }
 
 .details-card {
@@ -68,19 +76,22 @@ code {
 }
 
 .crop-card-interior {
-    background-color: #6176058e;
+    background-color: #617605a2;
     border-color: #617605;
     border-width: 2px;
+    
 }
 
 .crop-card-start-interior {
-    background-color: #cdb30c8e;
+    background-color: #cdb30ca2;
     border-color: #cdb30c;
     border-width: 2px;
 }
 
 .detail-card-interior {
     background-image: url("../assets/images/milpa-grid-la-milpa.png");
+    font-family: 'Comfortaa', cursive;
+    font-size: 0.8rem;
 }
 
 ol,
@@ -100,18 +111,18 @@ ul {
 .kbd-navigation .square:focus {
     background: #ddd;
 }
-  
-.game {
-    display: flex;
-    flex-direction: row;
-}
-  
-.game-info {
-    margin-left: 20px;
-}
 
 .milpa {
     background-color: #62760c;
+}
+
+.milpa-header {
+    font-family: 'Lobster', cursive;
+}
+
+.round-counter {
+    font-family: 'Comfortaa', cursive;
+    font-size: 0.85rem;
 }
 
 .crops {
