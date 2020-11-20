@@ -95,7 +95,7 @@ const scoreTomato = (newCrop, newMilpa, currentRound) => {
   if(currentRound=== 16 ){
     if (totalTomato > 3){
       newScoreEnd += -15;
-    }else{
+    }else if(totalTomato>0 && totalTomato < 4){
       newScoreEnd += 5;
     }
   }
