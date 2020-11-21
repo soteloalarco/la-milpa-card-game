@@ -1,18 +1,28 @@
-import React from 'react';
-import Popup from 'reactjs-popup';
+import React, {useState} from 'react';
+import Modal from 'react-modal';
 import {CORN_CARD} from "../../../features/todos/atoms";
 
+
+
 export default function MatchHead(){
+  const [showRules, setShowRules] = useState(false);
+
+  const handleClose = ()=>setShowRules(false);
+  const handleShow = ()=> setShowRules(true)
+
   return (
     <div className="w-full milpa milpa-header">
       <div className="flex flex-wrap flex-row justify-around items-center">
         <img alt="la milpa logo" className="h-8 w-8 object-contain rounded-lg mx-2 mr-4 float-right" src="assets/images/la-milpa-logo.png" />
         <div className=" h-10 ">LA MILPA CARD GAME</div>
         <div className="flex">
-        <Popup trigger={
-          <button type="button" className="w-full">
+          <button type="button" className="w-full" onClick={handleShow}>
             <img alt="rules" className="h-8 w-8 rounded-full mx-0" src="assets/images/icons8-question-mark-128.png" />
-          </button>} position="bottom right">
+          </button>
+
+        <Modal isOpen={showRules} onRequestClose={handleClose} className="popup-content">
+        
+ 
           <div className="overflow-y-auto h-full">
           <div className="milpa-header text-2xl">Rules for La Milpa Card Game!</div>
           <img alt="la milpa logo" className="h-32 w-32 object-contain rounded-lg mx-2 mr-4 float-right" src="assets/images/la-milpa-logo.png" />
@@ -37,8 +47,9 @@ export default function MatchHead(){
           <p className="text-justify p-2">Special rule: each Crop Card specifies rules that apply to that type of Crop only. This rules could specify one time only bonuses and/or guidelines for obtaining extra 🍫 at the end of the game.</p>
 
           <div className="milpa-header text-2xl">Good Luck and Have Fun!</div>
+          <button type="button" className="bg-yellow-400 p-2 m-2 rounded-lg" onClick={handleClose}>Close Rules</button>
           </div>
-        </Popup>
+        </Modal>
         </div>
       </div>
     </div>

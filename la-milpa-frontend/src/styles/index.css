@@ -144,35 +144,20 @@ ul {
 .popup-content {
   margin: auto;
   background: rgb(255, 255, 255);
-  width: 50%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  width: 30%;
+  height: 80%;
   padding: 5px;
   border-radius: 5px;
   text-align: center;
   font-family: 'Comfortaa', cursive;
-}
-
-.popup-arrow {
-  color: rgb(255, 255, 255);
-}
-
-[role='tooltip'].popup-content {
-  width: 35%;
-  height: 80%;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
-}
-
-.popup-overlay {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-[data-popup='tooltip'].popup-overlay {
-  background: transparent;
+  margin-top: 15px;
 }
 
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
-    [role='tooltip'].popup-content {
+    .popup-content {
         width: 80%;
         height: 80%;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
