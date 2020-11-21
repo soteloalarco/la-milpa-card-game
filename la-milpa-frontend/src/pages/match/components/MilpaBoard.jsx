@@ -1,11 +1,8 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
-import React, {useState} from 'react';
-import PropTypes, { bool, object } from 'prop-types';
-import { useRecoilValue , useRecoilState, useRecoilCallback} from "recoil";
+import React from 'react';
+import PropTypes, { bool } from 'prop-types';
 import CropCardMilpa from './CropCardMilpa';
-
-import {milpaP1State, milpaP2State} from "../../../features/todos/atoms";
 
 export default function MilpaBoard(props){
 

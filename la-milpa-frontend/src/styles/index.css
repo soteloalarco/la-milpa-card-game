@@ -44,15 +44,27 @@ code {
 }
 
 .milpa-interior {
-    background-image: url("https://static8.depositphotos.com/1010262/972/i/600/depositphotos_9728134-stock-photo-sowing-time.jpg");
+    background-image: url("../assets/images/milpa-grid-la-milpa.png");
 }
 
 .crops-table {
-    background-image: url("https://cdn.shopify.com/s/files/1/2954/2248/products/Sweet-Corn-Bodacious-Hybrid-Vegetable-Ferry-Morse_1400x.jpg?v=1582921331");
+    background-image: url("../assets/images/milpa-2-la-milpa.png");
 }
 
 .crop-card {
-    @apply w-64 h-24 shadow-2xl rounded-xl;
+    @apply h-24 shadow-2xl rounded-xl;
+}
+
+.crop-card-width {
+    width: 18rem;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1rem;
+}
+
+.crop-card-start {
+    width: 18rem;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.2rem;
 }
 
 .details-card {
@@ -60,15 +72,26 @@ code {
 }
 
 .w-parcela {
-    max-width: 360px;
+    width: 22rem;
 }
 
 .crop-card-interior {
-    background-image: url("https://media.istockphoto.com/photos/dark-wood-plank-background-picture-id599752764?k=6&m=599752764&s=170667a&w=0&h=Ybg37oGPAn7NAKqCYuk-wY6LX_NYyNZ37Tu28aouZsk=");
+    background-color: #617605a2;
+    border-color: #617605;
+    border-width: 2px;
+    
+}
+
+.crop-card-start-interior {
+    background-color: #cdb30ca2;
+    border-color: #cdb30c;
+    border-width: 2px;
 }
 
 .detail-card-interior {
-    background-image: url("https://5.imimg.com/data5/SJ/SB/MY-23150508/20mm-black-stone-aggregate-500x500.jpg");
+    background-image: url("../assets/images/milpa-grid-la-milpa.png");
+    font-family: 'Comfortaa', cursive;
+    font-size: 0.8rem;
 }
 
 ol,
@@ -76,30 +99,10 @@ ul {
     padding-left: 30px;
 }
   
-.board-row::after {
-    clear: both;
-    content: "";
-    display: table;
-}
-  
 .status {
     margin-bottom: 10px;
 }
-  
-.square {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 34px;
-}
+
   
 .square:focus {
     outline: none;
@@ -108,22 +111,22 @@ ul {
 .kbd-navigation .square:focus {
     background: #ddd;
 }
-  
-.game {
-    display: flex;
-    flex-direction: row;
-}
-  
-.game-info {
-    margin-left: 20px;
-}
 
 .milpa {
-    background-color: #206a5d;
+    background-color: #62760c;
+}
+
+.milpa-header {
+    font-family: 'Lobster', cursive;
+}
+
+.round-counter {
+    font-family: 'Comfortaa', cursive;
+    font-size: 0.85rem;
 }
 
 .crops {
-    background-color: #81b214;
+    background-color: #62760c;
 }
 
 .main-board {
