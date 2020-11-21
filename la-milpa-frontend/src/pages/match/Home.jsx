@@ -86,7 +86,7 @@ function Home() {
             <header className="App-header">
                 <MatchHead/>
             </header>
-            <div className="match bg-center lg:container lg:mx-auto main-board py-2 my-2">
+            <div className="match bg-center lg:container lg:mx-auto main-board py-1 my-2 rounded-lg">
                 <div className="flex flex-wrap flex-row justify-evenly items-center px-2">
                     {ROUND_NAMES.map((roundName) => (
                         <RoundCounter key={roundName} roundName={roundName} indexName={ROUND_NAMES.indexOf(roundName)} currentRound={currentRoundValue}/>
@@ -103,7 +103,7 @@ function Home() {
                         </div>
                         <div className="flex-none shadow-2xl"><MilpaBoard milpaIsActive={milpaP1IsActiveValue} playerNumber={0} milpaCropsValue={milpaP1CropsValue}/></div>
                         <div className="flex-none w-full">
-                            <div className="bg-gray-400 rounded-md"> Puntaje : {milpaP1ScoreValue} cacao 🍫</div>
+                            <div className="bg-gray-400 rounded-md"> Puntaje : {milpaP1ScoreValue} Cacao 🍫</div>
                         </div>
                     </div> 
                     <div className="flex-none shadow-2xl"><CropsTable startDisabled={!startIsActiveValue} handleStartMatch={handleStartMatch} tableIsActive={tableIsActiveValue}/></div>
