@@ -94,6 +94,10 @@ code {
     font-size: 0.8rem;
 }
 
+.rules {
+    background-image: url("../assets/images/icons8-question-mark-128.png");
+}
+
 ol,
 ul {
     padding-left: 30px;
@@ -117,7 +121,7 @@ ul {
 }
 
 .milpa-header {
-    font-family: 'Lobster', cursive;
+    font-family: 'Nerko One', cursive;
 }
 
 .round-counter {
@@ -135,4 +139,42 @@ ul {
 
 .match {
     background-color: #999;
+}
+
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  width: 50%;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'Comfortaa', cursive;
+}
+
+.popup-arrow {
+  color: rgb(255, 255, 255);
+}
+
+[role='tooltip'].popup-content {
+  width: 35%;
+  height: 80%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
+}
+
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    [role='tooltip'].popup-content {
+        width: 80%;
+        height: 80%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+      }      
 }
