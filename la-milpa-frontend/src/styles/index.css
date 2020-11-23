@@ -1,0 +1,165 @@
+/* purgecss start ignore */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* purgecss end ignore */
+
+@import "tailwindcss/utilities";
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: theme("colors.primary");
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+.dark-theme body {
+    background-color: theme("colors.dark");
+    color: theme("colors.darkFont");
+}
+
+.btn {
+    @apply mx-2 rounded-lg py-2 px-4;
+}
+
+.todo-btn {
+    width: 200px;
+}
+
+.todo-btn--selected {
+    @apply bg-blue-700;
+}
+
+.parcela {
+    @apply w-12 h-12 bg-gray-100 bg-opacity-25 shadow-xl;
+}
+
+.milpa-interior {
+    background-image: url("../assets/images/milpa-grid-la-milpa.png");
+}
+
+.crops-table {
+    background-image: url("../assets/images/milpa-2-la-milpa.png");
+}
+
+.crop-card {
+    @apply h-24 shadow-2xl rounded-xl;
+}
+
+.crop-card-width {
+    width: 18rem;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1rem;
+}
+
+.crop-card-start {
+    width: 18rem;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.2rem;
+}
+
+.details-card {
+    @apply shadow-2xl rounded-xl;
+}
+
+.w-parcela {
+    width: 22rem;
+}
+
+.crop-card-interior {
+    background-color: #617605a2;
+    border-color: #617605;
+    border-width: 2px;
+    
+}
+
+.crop-card-start-interior {
+    background-color: #cdb30ca2;
+    border-color: #cdb30c;
+    border-width: 2px;
+}
+
+.detail-card-interior {
+    background-image: url("../assets/images/milpa-grid-la-milpa.png");
+    font-family: 'Comfortaa', cursive;
+    font-size: 0.8rem;
+}
+
+.rules {
+    background-image: url("../assets/images/icons8-question-mark-128.png");
+}
+
+ol,
+ul {
+    padding-left: 30px;
+}
+  
+.status {
+    margin-bottom: 10px;
+}
+
+  
+.square:focus {
+    outline: none;
+}
+  
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+
+.milpa {
+    background-color: #62760c;
+}
+
+.milpa-header {
+    font-family: 'Nerko One', cursive;
+}
+
+.round-counter {
+    font-family: 'Comfortaa', cursive;
+    font-size: 0.85rem;
+}
+
+.crops {
+    background-color: #62760c;
+}
+
+.main-board {
+    background-color: #bfdcae;
+}
+
+.match {
+    background-color: #999;
+}
+
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  width: 30%;
+  height: 80%;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'Comfortaa', cursive;
+  margin-top: 15px;
+}
+
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    .popup-content {
+        width: 80%;
+        height: 80%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+      }      
+}
