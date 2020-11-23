@@ -14,7 +14,7 @@ React App making use of Recoil and TailwindCSS.
 Here is a working live demo :  https://la-milpa-card-game.vercel.app/
 
 ## Original Idea
-The idea of La Milpa comes from my love for boardgames and plants, and I found this to be a great opportunity for displaying the vast knowledge and heritage comming from mesoamerican people regarding agriculture. La Milpa was the preferred way of agriculture between mesoamerican people and it consisted in simultanously growning various types of crops in the same land (usually corn, pumpkin, chilli, beans, tomatillo and tomato), all of which had a good and complementary relationship between them, for example beans helped corn not only making the soil absorb more nitrogen but also they will make for complete proteins when consumed together.
+The idea of La Milpa comes from my love for boardgames and plants, and I found this to be a great opportunity for displaying the vast knowledge and heritage coming from mesoamerican people regarding agriculture. La Milpa was the preferred way of agriculture between mesoamerican people and it consisted in simultaneously growing various types of crops in the same land (usually corn, pumpkin, chilli, beans, tomatillo and tomato), all of which had a good and complementary relationship between them, for example beans helped corn not only making the soil absorb more nitrogen but also they will make for complete proteins when consumed together.
 
 La Milpa is intended to be a Full Stack Application with online multiplayer features, but in this first project only the Frontend has been implemented and only local multiplayer is supported.
 
