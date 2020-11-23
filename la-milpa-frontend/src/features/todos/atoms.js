@@ -75,25 +75,25 @@ const CARD_NEXTROUNS = {
 
 const CORN_CARD = {
     key : "corn",
-    title : "Corn / Tlaolli 🌽",
-    subtitle: "Harvest: round 13 - Tepeíhuitl",
+    title : "Corn/Tlaolli 🌽",
+    subtitle: "Harvest: round 12 and 13",
     image : "/assets/images/corn-la-milpa.png",
-    rules : "+1🍫 when planted, +15🍫 per completed row/column at the end.",
+    rules : "+3🍫 when planted, +15🍫 per completed row/column at the end.",
     icon: "🌽"
 }
 
 const BEANS_CARD = {
     key : "beans",
-    title : "Beans / Etl 🌰",
-    subtitle: "Harvest: from round 1 to round 4",
+    title : "Beans/Etl 🌰",
+    subtitle: "Harvest: from round 1 to round 6",
     image: "/assets/images/beans-la-milpa.png",
-    rules: "+3🍫 per adjacent 🌽 at the end.",
+    rules: "+4🍫 per adjacent 🌽 and 🌰 at the end.",
     icon: "🌰"
 }
 
 const TOMATO_CARD = {
     key : "tomato",
-    title : "Tomato / Xitómatl 🍅",
+    title : "Tomato/Xitómatl 🍅",
     subtitle: "Harvest: every round",
     image: "/assets/images/tomato-la-milpa.png",
     rules: "+5🍫 at the end if you have 3 🍅 or fewer, -15🍫 otherwhise.",
@@ -102,19 +102,19 @@ const TOMATO_CARD = {
 
 const CHILLI_CARD = {
     key : "chilli",
-    title : "Chilli / Chili 🌶️",
+    title : "Chilli/Chili 🌶️",
     subtitle: "Harvest: from round 1 to 8",
     image: "/assets/images/chilli-la-milpa.png",
-    rules: "+3🍫 when planted, +3🍫 for each 🌶️ planted before round 9.",
+    rules: "+3🍫 when planted, +3🍫 if planted before round 9 at the end.",
     icon: "🌶️"
 }
 
 const TOMATILLO_CARD = {
     key : "tomatillo",
-    title : "Tomatillo / Tomátl 🍈",
+    title : "Tomatillo/Tomátl 🍈",
     subtitle: "Harvest: from round 6 to 8",
     image: "/assets/images/tomatillo-la-milpa.png",
-    rules: "At the end +5🍫 for each 🌶️, -10🍫 if there's an adjacent 🌶️.",
+    rules: "At the end: +4🍫 for each 🌶️ per 🍈, -10🍫 if there's an adjacent 🌶️.",
     icon: "🍈"
 }
 

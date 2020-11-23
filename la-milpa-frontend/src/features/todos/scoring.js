@@ -13,12 +13,12 @@ const ROW3=[3,7,11,15];
 const scoreCorn = (newCrop, newMilpa, currentRound) => {
   let newScore = 0;
   let newScoreEnd = 0;
-  if(currentRound === 13){
+  if(currentRound === 12 || currentRound === 13){
     const totalCorn = newMilpa.filter(crop => crop.key==='corn').length;
     newScore += totalCorn;
   }
   if(newCrop.key === 'corn'){
-    newScore ++;
+    newScore +=3;
   }
   if(currentRound=== 16){
     const scoreCol0 = newMilpa[COL0[0]].key==='corn' && newMilpa[COL0[1]].key==='corn' && newMilpa[COL0[2]].key==='corn' && newMilpa[COL0[3]].key==='corn' ? 15 : 0;
@@ -38,7 +38,7 @@ const scoreCorn = (newCrop, newMilpa, currentRound) => {
 const scoreBeans = (newCrop,index, newMilpa, currentRound) => {
   let newScore = 0;
   let newScoreEnd = 0;
-  if(currentRound <= 4){
+  if(currentRound <= 6){
     const totalBeans = newMilpa.filter(crop => crop.key==='beans').length;
     newScore += totalBeans;
   }
@@ -48,16 +48,16 @@ const scoreBeans = (newCrop,index, newMilpa, currentRound) => {
     let scoreLeft = 0;
     let scoreRight = 0;
     if(index-4 >= 0){
-      scoreUp = newMilpa[index-4].key === 'corn' ? 3 : 0;
+      scoreUp = newMilpa[index-4].key === 'corn' ? 4 : 0;
     }
     if(index+4 <16){
-      scoreDown = newMilpa[index+4].key === 'corn' ? 3 : 0;
+      scoreDown = newMilpa[index+4].key === 'corn' ? 4 : 0;
     }
     if(index-1 >= 0){
-      scoreLeft = newMilpa[index-1].key === 'corn' && (index - 1)%4 !== 3 ? 3 : 0;
+      scoreLeft = newMilpa[index-1].key === 'corn' && (index - 1)%4 !== 3 ? 4 : 0;
     }
     if(index+1 <16){
-      scoreRight = newMilpa[index+1].key === 'corn' && (index + 1)%4 !== 0 ? 3 : 0;
+      scoreRight = newMilpa[index+1].key === 'corn' && (index + 1)%4 !== 0 ? 4 : 0;
     }
 
     newScoreEnd += scoreUp + scoreDown + scoreLeft + scoreRight;
@@ -68,16 +68,16 @@ const scoreBeans = (newCrop,index, newMilpa, currentRound) => {
     let scoreLeft = 0;
     let scoreRight = 0;
     if(index-4 >= 0){
-      scoreUp = newMilpa[index-4].key === 'beans' ? 3 : 0;
+      scoreUp = newMilpa[index-4].key === 'beans' ? 4 : 0;
     }
     if(index+4 <16){
-      scoreDown = newMilpa[index+4].key === 'beans' ? 3 : 0;
+      scoreDown = newMilpa[index+4].key === 'beans' ? 4 : 0;
     }
     if(index-1 >= 0){
-      scoreLeft = newMilpa[index-1].key === 'beans' && (index - 1)%4 !== 3 ? 3 : 0;
+      scoreLeft = newMilpa[index-1].key === 'beans' && (index - 1)%4 !== 4 ? 3 : 0;
     }
     if(index+1 <16){
-      scoreRight = newMilpa[index+1].key === 'beans' && (index + 1)%4 !== 0 ? 3 : 0;
+      scoreRight = newMilpa[index+1].key === 'beans' && (index + 1)%4 !== 0 ? 4 : 0;
     }
 
     newScoreEnd += scoreUp + scoreDown + scoreLeft + scoreRight;
@@ -157,7 +157,7 @@ const scoreTomatillo = (newCrop, newMilpa, currentRound) => {
     else{
       const totalChilli = newMilpa.filter(crop => crop.key==='chilli').length;
       const totalTomatillo = newMilpa.filter(crop => crop.key==='tomatillo').length;
-      newScoreEnd += totalChilli*totalTomatillo*5;
+      newScoreEnd += totalChilli*totalTomatillo*4;
     }
   }
 
